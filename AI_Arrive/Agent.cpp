@@ -1,5 +1,6 @@
 #include "Agent.h"
 #include "Behaviour.h"
+#include <algorithm>
 
 Agent::Agent()
 {
@@ -26,6 +27,7 @@ void Agent::Update(float deltaTime)
 	//	 Call the Behaviour’s Update functionand add the returned value to Force
 	// Add Force multiplied by delta time to Velocity
 	// Add Velocity multiplied by delta time to Position
+	
 	for (int i = 0; i < m_behaviourList.size(); i++)
 	{
 		Vector2 force = m_behaviourList[i]->Update(this, deltaTime);

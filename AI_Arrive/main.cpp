@@ -21,7 +21,7 @@
 
 #include "raylib.h"
 #include "Agent.h"
-#include "FleeBehaviour.h"
+#include "ArriveBehaviour.h"
 
 int main(int argc, char* argv[])
 {
@@ -35,15 +35,14 @@ int main(int argc, char* argv[])
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
 
+
     Vector2 target = { (float)(screenWidth >> 1), (float)(screenHeight >> 1) };
 
-    Agent* fleeAgent = new Agent();
-    fleeAgent->SetPosition({ (float)(screenWidth >> 1), (float)(screenHeight >> 1) });
-    FleeBehaviour* fleeBehaviour = new FleeBehaviour();
-    fleeBehaviour->SetDestination(target);    
-    fleeAgent->AddBehaviour(fleeBehaviour);
-
-        
+    Agent* seeker = new Agent();
+    ArriveBehaviour* arriveBehaviour = new ArriveBehaviour();
+    arriveBehaviour->SetDestination(target);
+    seeker->AddBehaviour(arriveBehaviour);
+            
     float deltaTime = 0;
 
     // Main game loop
@@ -59,10 +58,10 @@ int main(int argc, char* argv[])
         if (IsMouseButtonDown(0) == true)
         {
             target = GetMousePosition();
-            fleeBehaviour->SetDestination(target);
+            arriveBehaviour->SetDestination(target);
         }
 
-        fleeAgent->Update(deltaTime);
+        seeker->Update(deltaTime);
 
         // Draw
         //----------------------------------------------------------------------------------
@@ -71,16 +70,16 @@ int main(int argc, char* argv[])
         ClearBackground(RAYWHITE);
         DrawText("Click anywhere to set a new target position", 20, 20, 12, RED);
         DrawLine(target.x - 5, target.y, target.x + 5, target.y, BLUE);
-        DrawLine(target.x, target.y - 5, target.x, target.y + 5, BLUE);
+        DrawLine(target.x, target.y-5, target.x, target.y+5, BLUE);
 
-        fleeAgent->Draw();
+        seeker->Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
 
-    delete fleeBehaviour;
-    delete fleeAgent;
+    delete arriveBehaviour;
+    delete seeker;
 
 
     // De-Initialization

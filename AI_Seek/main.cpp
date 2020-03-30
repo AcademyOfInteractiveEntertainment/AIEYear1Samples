@@ -21,7 +21,6 @@
 
 #include "raylib.h"
 #include "Agent.h"
-#include "KeyboardBehaviour.h"
 #include "SeekBehaviour.h"
 
 int main(int argc, char* argv[])
@@ -36,13 +35,11 @@ int main(int argc, char* argv[])
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
 
-    Agent* player = new Agent();
-    KeyboardBehaviour* keyboardBehaviour = new KeyboardBehaviour();
-    player->AddBehaviour(keyboardBehaviour);
+    Vector2 target = { (float)(screenWidth >> 1), (float)(screenHeight >> 1) };
 
     Agent* seeker = new Agent();
     SeekBehaviour* seekBehaviour = new SeekBehaviour();
-    seekBehaviour->SetTarget(player);
+    seekBehaviour->SetDestination(target);
     seeker->AddBehaviour(seekBehaviour);
 
         
@@ -58,7 +55,12 @@ int main(int argc, char* argv[])
 
         deltaTime = GetFrameTime();
 
-        player->Update(deltaTime);
+        if (IsMouseButtonDown(0) == true)
+        {
+            target = GetMousePosition();
+            seekBehaviour->SetDestination(target);
+        }
+
         seeker->Update(deltaTime);
 
         // Draw
@@ -66,17 +68,17 @@ int main(int argc, char* argv[])
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+        DrawText("Click anywhere to set a new target position", 20, 20, 12, RED);
+        DrawLine(target.x - 5, target.y, target.x + 5, target.y, BLUE);
+        DrawLine(target.x, target.y - 5, target.x, target.y + 5, BLUE);
 
-        player->Draw();
         seeker->Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
 
-    delete keyboardBehaviour;
     delete seekBehaviour;
-    delete player;
     delete seeker;
 
 

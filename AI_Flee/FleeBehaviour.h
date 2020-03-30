@@ -8,10 +8,10 @@ public:
 	virtual ~FleeBehaviour() {};
 
 	virtual Vector2 Update(Agent* agent, float deltaTime);
-	void SetTarget(Agent* agent) { m_target = agent; }
+	void SetDestination(Vector2 destination) { m_destination = destination; }
 
 private:
-	Agent* m_target;
-	float m_maxSpeed = 50;
+	Vector2 m_destination;
+	float m_fleeRadius = 100;
 };
 

@@ -24,7 +24,7 @@
     <ClCompile Include="Behaviour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SeekBehaviour.cpp">
+    <ClCompile Include="ArriveBehaviour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClInclude Include="Behaviour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SeekBehaviour.h">
+    <ClInclude Include="ArriveBehaviour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,13 @@ Agent::Agent()
 Agent::~Agent()
 {}
 
+Vector2 Agent::Truncate(Vector2 v, float max)
+{
+	float i = max / Vector2Length(v);
+	i = i < 1.0 ? i : 1.0;
+	return Vector2Scale(v, i);
+}
+
 // Update the agent and its behaviours
 void Agent::Update(float deltaTime)
 {
@@ -19,7 +26,8 @@ void Agent::Update(float deltaTime)
 	{
 		Vector2 force = m_behaviourList[i]->Update(this, deltaTime);
 
-		m_velocity = (Vector2Add(m_velocity, Vector2Scale(force, deltaTime)));
+		// If (velocity + steering) equals zero, then there is no movement
+		m_velocity = Truncate((Vector2Add(m_velocity, force)), m_maxSpeed);
 		m_position = (Vector2Add(m_position, Vector2Scale(m_velocity, deltaTime)));
 	}
 
