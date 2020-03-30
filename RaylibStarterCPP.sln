@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Flee", "AI_Flee\AI_Flee.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Arrive", "AI_Arrive\AI_Arrive.vcxproj", "{3EE17924-070D-4E49-AEDF-18FB3131BC0D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Wander", "AI_Wander\AI_Wander.vcxproj", "{8A97479B-6DA2-4242-8078-F694D6DF2650}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{be6734cb-fa50-4a17-9283-95cf7f16a3b0}*SharedItemsImports = 4
@@ -93,6 +95,16 @@ Global
 		{3EE17924-070D-4E49-AEDF-18FB3131BC0D}.Release|x64.Build.0 = Release|x64
 		{3EE17924-070D-4E49-AEDF-18FB3131BC0D}.Release|x86.ActiveCfg = Release|Win32
 		{3EE17924-070D-4E49-AEDF-18FB3131BC0D}.Release|x86.Build.0 = Release|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Debug|x64.ActiveCfg = Debug|x64
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Debug|x64.Build.0 = Debug|x64
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Debug|x86.ActiveCfg = Debug|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Debug|x86.Build.0 = Debug|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|Any CPU.ActiveCfg = Release|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x64.ActiveCfg = Release|x64
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x64.Build.0 = Release|x64
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x86.ActiveCfg = Release|Win32
+		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
