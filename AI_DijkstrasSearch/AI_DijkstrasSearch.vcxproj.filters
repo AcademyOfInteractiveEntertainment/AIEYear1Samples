@@ -18,12 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="pathfinding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-=======
->>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pathfinding.h">
