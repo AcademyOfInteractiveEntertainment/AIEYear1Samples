@@ -27,9 +27,6 @@
     <ClCompile Include="Blackboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Condition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

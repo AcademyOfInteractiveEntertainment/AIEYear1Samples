@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{9d7e02e0-0933-4366-b586-93573be77232}</ProjectGuid>
+    <ProjectGuid>{89272c7e-dcbc-42cb-b02e-f868fa6e6256}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AI_Blackboards</RootNamespace>
+    <RootNamespace>AI_DijkstrasSearch</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -167,31 +167,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Agent.cpp" />
-    <ClCompile Include="Behaviour.cpp" />
-    <ClCompile Include="Blackboard.cpp" />
-    <ClCompile Include="BlackboardRespondBehaviour.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="BlackboardState.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="BlackboardAgent.cpp" />
-    <ClCompile Include="State.cpp" />
-    <ClCompile Include="SteeringBehaviour.cpp" />
+    <ClCompile Include="pathfinding.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Agent.h" />
-    <ClInclude Include="Behaviour.h" />
-    <ClInclude Include="Blackboard.h" />
-    <ClInclude Include="BlackboardRespondBehaviour.h" />
-    <ClInclude Include="BlackboardConditions.h" />
-    <ClInclude Include="BlackboardExpert.h" />
-    <ClInclude Include="BlackboardQuestion.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="BlackboardState.h" />
-    <ClInclude Include="Condition.h" />
-    <ClInclude Include="BlackboardAgent.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="SteeringBehaviour.h" />
+    <ClInclude Include="pathfinding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
