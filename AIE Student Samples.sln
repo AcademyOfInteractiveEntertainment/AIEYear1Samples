@@ -19,9 +19,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Arrive", "AI_Arrive\AI_A
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Wander", "AI_Wander\AI_Wander.vcxproj", "{8A97479B-6DA2-4242-8078-F694D6DF2650}"
 EndProject
+<<<<<<< HEAD:AIE Student Samples.sln
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Blackboards", "AI_Blackboards\AI_Blackboards.vcxproj", "{9D7E02E0-0933-4366-B586-93573BE77232}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_DijkstrasSearch", "AI_DijkstrasSearch\AI_DijkstrasSearch.vcxproj", "{89272C7E-DCBC-42CB-B02E-F868FA6E6256}"
+=======
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_DijkstrasSearch", "AI_DijkstrasSearch\AI_DijkstrasSearch.vcxproj", "{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}"
+>>>>>>> master:RaylibStarterCPP.sln
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -109,6 +113,7 @@ Global
 		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x64.Build.0 = Release|x64
 		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x86.ActiveCfg = Release|Win32
 		{8A97479B-6DA2-4242-8078-F694D6DF2650}.Release|x86.Build.0 = Release|Win32
+<<<<<<< HEAD:AIE Student Samples.sln
 		{9D7E02E0-0933-4366-B586-93573BE77232}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{9D7E02E0-0933-4366-B586-93573BE77232}.Debug|x64.ActiveCfg = Debug|x64
 		{9D7E02E0-0933-4366-B586-93573BE77232}.Debug|x64.Build.0 = Debug|x64
@@ -129,6 +134,18 @@ Global
 		{89272C7E-DCBC-42CB-B02E-F868FA6E6256}.Release|x64.Build.0 = Release|x64
 		{89272C7E-DCBC-42CB-B02E-F868FA6E6256}.Release|x86.ActiveCfg = Release|Win32
 		{89272C7E-DCBC-42CB-B02E-F868FA6E6256}.Release|x86.Build.0 = Release|Win32
+=======
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Debug|x64.ActiveCfg = Debug|x64
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Debug|x64.Build.0 = Debug|x64
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Debug|x86.ActiveCfg = Debug|Win32
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Debug|x86.Build.0 = Debug|Win32
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Release|Any CPU.ActiveCfg = Release|Win32
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Release|x64.ActiveCfg = Release|x64
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Release|x64.Build.0 = Release|x64
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Release|x86.ActiveCfg = Release|Win32
+		{9257A2D6-F3D5-4B14-94B1-C2EED6E11674}.Release|x86.Build.0 = Release|Win32
+>>>>>>> master:RaylibStarterCPP.sln
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
