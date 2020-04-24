@@ -41,7 +41,7 @@ public:
 
 	MovementInfo m_movementInfo;
 
-	static std::vector<Agent*> agents;
+	static std::vector<Agent*>* agents;
 private:
 	// Function for constructors to call
 	void Init(Vector2 position);

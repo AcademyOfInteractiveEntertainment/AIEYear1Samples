@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+std::vector<Agent*>* Agent::agents;
+
 Agent::Agent()
 {
 	Init(Vector2());
@@ -92,9 +94,9 @@ void Agent::Init(Vector2 a_position)
 
 void Agent::avoidAgents()
 {
-	static std::vector<Agent*> agents;// = Game1::GetAgents();
+	// = Game1::GetAgents();
 	
-	for (auto agent : agents)
+	for (auto agent : *agents)
 	{
 		if (agent != this)
 		{
