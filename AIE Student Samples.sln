@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Blackboards", "AI_Blackb
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_DijkstrasSearch", "AI_DijkstrasSearch\AI_DijkstrasSearch.vcxproj", "{FA08050D-5807-42E6-9D9E-9ABBE3AF23C9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Flocking", "AI_Flocking\AI_Flocking.vcxproj", "{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{be6734cb-fa50-4a17-9283-95cf7f16a3b0}*SharedItemsImports = 4
@@ -129,6 +131,16 @@ Global
 		{FA08050D-5807-42E6-9D9E-9ABBE3AF23C9}.Release|x64.Build.0 = Release|x64
 		{FA08050D-5807-42E6-9D9E-9ABBE3AF23C9}.Release|x86.ActiveCfg = Release|Win32
 		{FA08050D-5807-42E6-9D9E-9ABBE3AF23C9}.Release|x86.Build.0 = Release|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Debug|x64.ActiveCfg = Debug|x64
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Debug|x64.Build.0 = Debug|x64
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Debug|x86.ActiveCfg = Debug|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Debug|x86.Build.0 = Debug|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Release|Any CPU.ActiveCfg = Release|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Release|x64.ActiveCfg = Release|x64
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Release|x64.Build.0 = Release|x64
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Release|x86.ActiveCfg = Release|Win32
+		{28B64DF0-2B1F-4051-B4A2-58345C5FCF34}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
