@@ -22,8 +22,10 @@ bool CDDS_AlgorithmsApp::startup() {
 	return true;
 }
 
-void CDDS_AlgorithmsApp::shutdown() {
-
+void CDDS_AlgorithmsApp::shutdown() 
+{
+	UnloadTexture(m_croissant);
+	UnloadTexture(m_cupcake);
 }
 
 // As an activity, optimize this algorithm
