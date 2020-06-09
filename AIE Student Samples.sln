@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_QuickSort", "CDDS_Quic
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Search", "CDDS_Search\CDDS_Search.vcxproj", "{3506D91D-9422-4428-B639-D979373B6878}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_MergeSort", "CDDS_MergeSort\CDDS_MergeSort.vcxproj", "{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{be6734cb-fa50-4a17-9283-95cf7f16a3b0}*SharedItemsImports = 4
@@ -249,6 +251,16 @@ Global
 		{3506D91D-9422-4428-B639-D979373B6878}.Release|x64.Build.0 = Release|x64
 		{3506D91D-9422-4428-B639-D979373B6878}.Release|x86.ActiveCfg = Release|Win32
 		{3506D91D-9422-4428-B639-D979373B6878}.Release|x86.Build.0 = Release|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Debug|x64.ActiveCfg = Debug|x64
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Debug|x64.Build.0 = Debug|x64
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Debug|x86.ActiveCfg = Debug|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Debug|x86.Build.0 = Debug|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Release|x64.ActiveCfg = Release|x64
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Release|x64.Build.0 = Release|x64
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Release|x86.ActiveCfg = Release|Win32
+		{E964C17A-DC0A-44B1-9D44-2F3DFD0E87D6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
