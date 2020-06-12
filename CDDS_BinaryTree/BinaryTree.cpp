@@ -42,10 +42,10 @@ TreeNode* BinaryTree::Find(int a_nValue)
 	TreeNode* pCurrent = nullptr;
 	TreeNode* pParent = nullptr;
 
-	return FindNode(a_nValue, &pCurrent, &pParent) ? pCurrent: nullptr;
+	return FindNode(a_nValue, pCurrent, pParent) ? pCurrent: nullptr;
 }
 
-bool BinaryTree::FindNode(int a_nSearchValue, TreeNode** ppOutNode, TreeNode** ppOutParent)
+bool BinaryTree::FindNode(int a_nSearchValue, TreeNode*& ppOutNode, TreeNode*& ppOutParent)
 {
 
 

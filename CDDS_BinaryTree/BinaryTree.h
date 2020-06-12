@@ -26,7 +26,7 @@ public:
 
 private:
 	//Find the node with the specified value.
-	bool FindNode(int a_nSearchValue, TreeNode** ppOutNode, TreeNode** ppOutParent);
+	bool FindNode(int a_nSearchValue, TreeNode*& ppOutNode, TreeNode*& ppOutParent);
 
 	//Used to recurse through the nodes in value order and print their values.
 	void PrintOrderedRecurse(TreeNode*);
