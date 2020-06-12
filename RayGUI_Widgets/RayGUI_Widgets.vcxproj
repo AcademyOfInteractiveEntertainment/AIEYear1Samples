@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{66F97E22-5E02-4257-B75C-DA71B7A17BFF}</ProjectGuid>
+    <ProjectGuid>{5410fc57-321e-43d5-837c-7a47033041b8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>RaylibStarterCPP</RootNamespace>
+    <RootNamespace>RayGUI_Widgets</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
