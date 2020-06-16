@@ -1,10 +1,6 @@
 #pragma once
 #include "AABB.h"
 
-namespace aie {
-	class Renderer2D;
-}
-
 class GameObject
 {
 public:
