@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RayGUI_Widgets", "RayGUI_Wi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Stack", "CDDS_Stack\CDDS_Stack.vcxproj", "{58C45C5A-2D9D-4BBE-A415-77077AE5C1A2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Queues_TreasureHunt", "CDDS_Queues_TreasureHunt\CDDS_Queues_TreasureHunt.vcxproj", "{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{be6734cb-fa50-4a17-9283-95cf7f16a3b0}*SharedItemsImports = 4
@@ -309,6 +311,16 @@ Global
 		{58C45C5A-2D9D-4BBE-A415-77077AE5C1A2}.Release|x64.Build.0 = Release|x64
 		{58C45C5A-2D9D-4BBE-A415-77077AE5C1A2}.Release|x86.ActiveCfg = Release|Win32
 		{58C45C5A-2D9D-4BBE-A415-77077AE5C1A2}.Release|x86.Build.0 = Release|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Debug|x64.ActiveCfg = Debug|x64
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Debug|x64.Build.0 = Debug|x64
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Debug|x86.ActiveCfg = Debug|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Debug|x86.Build.0 = Debug|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Release|Any CPU.ActiveCfg = Release|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Release|x64.ActiveCfg = Release|x64
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Release|x64.Build.0 = Release|x64
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Release|x86.ActiveCfg = Release|Win32
+		{DF8582CA-473A-45CE-B7A4-C17D83D2D5BE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
