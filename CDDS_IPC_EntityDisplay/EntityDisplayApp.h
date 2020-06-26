@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include "raylib.h"
+#include "WinInc.h"
 
 struct Entity {
 	float x = 0, y = 0;

@@ -26,5 +26,8 @@
     <ClInclude Include="EntityDisplayApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WinInc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
