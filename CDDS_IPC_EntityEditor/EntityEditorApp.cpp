@@ -79,15 +79,6 @@ bool EntityEditorApp::Startup() {
 		entity.b = rand() % 255;
 	}
 	
-	HANDLE fileHandle = CreateFileMapping(
-		INVALID_HANDLE_VALUE, // a handle to an existing virtual file, or invalid
-		nullptr, // optional security attributes
-		PAGE_READWRITE, // read/write access control
-		0, sizeof(int), // size of the memory block, 
-		L"MySharedMemory");
-
-
-
 	return true;
 }
 
