@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Queues_TreasureHunt", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Graphs", "CDDS_Graphs\CDDS_Graphs.vcxproj", "{2DAC1653-0AB8-4036-B597-FF4D4152BE6E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Agents_IBehaviour", "AI_Agents_IBehaviour\AI_Agents_IBehaviour.vcxproj", "{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{be6734cb-fa50-4a17-9283-95cf7f16a3b0}*SharedItemsImports = 4
@@ -333,6 +335,16 @@ Global
 		{2DAC1653-0AB8-4036-B597-FF4D4152BE6E}.Release|x64.Build.0 = Release|x64
 		{2DAC1653-0AB8-4036-B597-FF4D4152BE6E}.Release|x86.ActiveCfg = Release|Win32
 		{2DAC1653-0AB8-4036-B597-FF4D4152BE6E}.Release|x86.Build.0 = Release|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Debug|x64.ActiveCfg = Debug|x64
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Debug|x64.Build.0 = Debug|x64
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Debug|x86.ActiveCfg = Debug|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Debug|x86.Build.0 = Debug|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x64.ActiveCfg = Release|x64
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x64.Build.0 = Release|x64
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x86.ActiveCfg = Release|Win32
+		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
