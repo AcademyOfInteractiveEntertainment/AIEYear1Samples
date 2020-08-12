@@ -1,7 +1,14 @@
 #include "pathfinding.h"
+#include <algorithm>
+#include <vector> 
 
 namespace pathfinding
 {
+	//Use this function to sort nodes using their gScore value
+	bool NodeSort(Node* i, Node* j) 
+	{ 
+		return (i->gScore < j->gScore); 
+	}
 
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
@@ -31,6 +38,9 @@ namespace pathfinding
 
 		while (!openList.empty())
 		{
+			//Sort openList based on gScore using the function created above
+			std::sort(openList.begin(), openList.end(), NodeSort);
+
 			//Set the current node to the first node in the openList
 			Node* currentNode = openList.front();
 			//Remove currentNode from openList
