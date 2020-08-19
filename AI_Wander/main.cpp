@@ -72,8 +72,8 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
-        wanderer->Draw();
         wanderBehaviour->Draw(wanderer);    // debug only
+        wanderer->Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

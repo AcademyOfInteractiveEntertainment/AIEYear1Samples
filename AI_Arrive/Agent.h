@@ -34,9 +34,12 @@ private:
 
 protected:
 	std::vector<Behaviour*> m_behaviourList;
-	
+
 	Vector2 m_position = { 0, 0 };
 	Vector2 m_velocity = { 0, 0 };
 	float m_maxSpeed = 100;
+
+	//Keep between 0 and 1, 0 is max friction, 1 is no friction
+	float m_frictionModifier = 0.99;
 };
 

@@ -2,10 +2,14 @@
 #include "Behaviour.h"
 
 Agent::Agent()
-{}
+{
+
+}
 
 Agent::~Agent()
-{}
+{
+
+}
 
 Vector2 Agent::Truncate(Vector2 v, float max)
 {
@@ -22,15 +26,18 @@ void Agent::Update(float deltaTime)
 	//	 Call the Behaviour’s Update functionand add the returned value to Force
 	// Add Force multiplied by delta time to Velocity
 	// Add Velocity multiplied by delta time to Position
+	Vector2 force = { 0,0 };
+
 	for (int i = 0; i < m_behaviourList.size(); i++)
 	{
-		Vector2 force = m_behaviourList[i]->Update(this, deltaTime);
-
-		// If (velocity + steering) equals zero, then there is no movement
-		m_velocity = Truncate((Vector2Add(m_velocity, force)), m_maxSpeed);
-		m_position = (Vector2Add(m_position, Vector2Scale(m_velocity, deltaTime)));
+		force = m_behaviourList[i]->Update(this, deltaTime);
 	}
 
+	// If (velocity + steering) equals zero, then there is no movement
+	m_velocity = Truncate((Vector2Add(m_velocity, Vector2Scale(force, deltaTime))), m_maxSpeed);
+	m_position = (Vector2Add(m_position, Vector2Scale(m_velocity, deltaTime)));
+
+	m_velocity = Vector2Scale(m_velocity, m_frictionModifier);
 }
 
 // Draw the agent

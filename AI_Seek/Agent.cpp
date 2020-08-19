@@ -36,6 +36,8 @@ void Agent::Update(float deltaTime)
 	// If (velocity + steering) equals zero, then there is no movement
 	m_velocity = Truncate((Vector2Add(m_velocity, Vector2Scale(force, deltaTime))), m_maxSpeed);
 	m_position = (Vector2Add(m_position, Vector2Scale(m_velocity, deltaTime)));
+
+	m_velocity = Vector2Scale(m_velocity, m_frictionModifier);
 }
 
 // Draw the agent
