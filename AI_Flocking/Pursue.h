@@ -1,9 +1,9 @@
 #ifndef PURSUE_H
 #define PURSUE_H
-#include "IBehavior.h"
+#include "Behavior.h"
 #include <raylib.h>
 
-class Pursue :	public IBehavior
+class Pursue :	public Behavior
 {
 public:
 	Pursue();

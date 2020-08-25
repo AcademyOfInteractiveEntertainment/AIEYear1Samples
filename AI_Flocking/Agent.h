@@ -11,7 +11,7 @@
 #include <raylib.h>
 #include <raymath.h>
 
-class IBehavior;
+class Behavior;
 
 // Container for position, movement, and rotation related data
 struct MovementInfo
@@ -37,7 +37,7 @@ public:
 	void Update(float deltaTime);
 	void Reset();
 
-	void AddBehavior(IBehavior* behavior) { m_behaviors.push_back(behavior); }
+	void AddBehavior(Behavior* behavior) { m_behaviors.push_back(behavior); }
 
 	MovementInfo m_movementInfo;
 
@@ -51,7 +51,7 @@ private:
 	void avoidScreenBounds();
 
 	// List of behaviors that will get called during every update
-	std::vector<IBehavior*> m_behaviors;
+	std::vector<Behavior*> m_behaviors;
 
 	// Position to reset to if the reset function gets called
 	Vector2 m_resetPosition;

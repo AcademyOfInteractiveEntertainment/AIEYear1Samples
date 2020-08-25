@@ -1,5 +1,5 @@
-#ifndef IBEHAVIOR_H
-#define IBEHAVIOR_H
+#ifndef BEHAVIOR_H
+#define BEHAVIOR_H
 
 //--------
 //	Breif: Interface class for all behaviors to inherit from
@@ -8,14 +8,13 @@
 //--------
 class Agent;
 
-class IBehavior
+class Behavior
 {
 public:
-	IBehavior(){};
-	virtual ~IBehavior() = 0 {};
+	Behavior() {};
+	virtual ~Behavior() = 0 {};
 	virtual void Update(float deltaTime, Agent& agent) = 0;
 	virtual const char* GetBehaviorName() = 0;
 };
 
 #endif
-

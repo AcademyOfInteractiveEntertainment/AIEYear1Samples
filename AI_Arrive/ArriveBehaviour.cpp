@@ -1,6 +1,6 @@
 #include "ArriveBehaviour.h"
 
-Vector2 ArriveBehaviour::Update(Agent* agent, float deltaTime)
+bool ArriveBehaviour::Update(Agent* agent, float deltaTime)
 {
 	Vector2 desiredVelocity = Vector2Subtract(m_destination, agent->GetPosition());
 	float distance = Vector2Length(desiredVelocity);
@@ -19,5 +19,7 @@ Vector2 ArriveBehaviour::Update(Agent* agent, float deltaTime)
 
 	// Set the steering based on this
 	Vector2 steeringForce = Vector2Subtract(desiredVelocity, agent->GetVelocity());
-	return steeringForce;
+	agent->AddForce(steeringForce);
+
+	return true;
 }

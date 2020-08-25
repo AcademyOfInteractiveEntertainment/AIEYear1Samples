@@ -1,9 +1,9 @@
 #ifndef EVADE_H
 #define EVADE_H
-#include "IBehavior.h"
+#include "Behavior.h"
 #include <raylib.h>
 
-class Evade : public IBehavior
+class Evade : public Behavior
 {
 public:
 	Evade();

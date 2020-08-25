@@ -7,10 +7,10 @@
 //	Date: 4/3/2015
 //--------
 
-#include "IBehavior.h"
+#include "Behavior.h"
 #include <raylib.h>
 
-class Flee : public IBehavior
+class Flee : public Behavior
 {
 public:
 	Flee();

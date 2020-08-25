@@ -33,7 +33,7 @@
 Agent* m_seeker;
 static std::vector<Agent*> agents;
 
-std::vector<IBehavior*>	   behaviors;
+std::vector<Behavior*>	   behaviors;
 std::vector<Circle*>	   circles;
 
 int mouse_x = 0;
@@ -109,13 +109,12 @@ int main(int argc, char* argv[])
 
         if (IsMouseButtonDown(0) == true)
         {
-          
+            //GetMousePosition
+              // Update Agents;
+              // Store the mouse position as floats here to conversions don't have to happen else where
+            mouse_xy = GetMousePosition();
         }
-        //GetMousePosition
-            // Update Agents;
-            // Store the mouse position as floats here to conversions don't have to happen else where
-        mouse_xy = GetMousePosition();
-
+        
         m_seeker->Update(deltaTime);
 
         // update the agents to sense, think, and act

@@ -7,7 +7,7 @@ public:
 	FleeBehaviour() {};
 	virtual ~FleeBehaviour() {};
 
-	virtual Vector2 Update(Agent* agent, float deltaTime);
+	virtual bool Update(Agent* agent, float deltaTime);
 	void SetDestination(Vector2 destination) { m_destination = destination; }
 
 private:

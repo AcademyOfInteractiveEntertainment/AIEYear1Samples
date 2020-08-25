@@ -65,9 +65,6 @@
     <ClInclude Include="Flee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IBehavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Pursue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Behavior.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

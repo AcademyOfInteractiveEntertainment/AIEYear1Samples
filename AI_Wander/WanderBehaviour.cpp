@@ -12,7 +12,7 @@ Vector2 WanderBehaviour::SetAngle(Vector2 vector, float value)
 	return { cosf(value) * length, sinf(value) * length };
 }
 
-Vector2 WanderBehaviour::Update(Agent* agent, float deltaTime)
+bool WanderBehaviour::Update(Agent* agent, float deltaTime)
 {	
 	Vector2 velocity = agent->GetVelocity();
 	if (Vector2Length(velocity) == 0)
@@ -44,7 +44,8 @@ Vector2 WanderBehaviour::Update(Agent* agent, float deltaTime)
 	debug_displacement = displacement;
 	/// DEBUG ONLY
 
-	return wanderForce;
+	agent->AddForce(wanderForce);
+	return true;
 }
 
 /// DEBUG ONLY

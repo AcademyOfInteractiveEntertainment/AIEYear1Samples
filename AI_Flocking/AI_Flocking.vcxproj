@@ -171,10 +171,10 @@
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Arrive.h" />
     <ClInclude Include="Avoid.h" />
+    <ClInclude Include="Behavior.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Evade.h" />
     <ClInclude Include="Flee.h" />
-    <ClInclude Include="IBehavior.h" />
     <ClInclude Include="Pursue.h" />
     <ClInclude Include="Seek.h" />
     <ClInclude Include="Wander.h" />

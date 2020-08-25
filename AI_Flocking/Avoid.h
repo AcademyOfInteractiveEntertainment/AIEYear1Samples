@@ -1,12 +1,12 @@
 #ifndef AVOID_H
 #define AVOID_H
-#include "IBehavior.h"
+#include "Behavior.h"
 #include <vector>
 #include <raylib.h>
 
 class Circle;
 
-class Avoid : public IBehavior
+class Avoid : public Behavior
 {
 public:
 	Avoid();

@@ -1,7 +1,7 @@
 #include "Agent.h"
 #define _USE_MATH_DEFINES
 
-#include "IBehavior.h"
+#include "Behavior.h"
 
 #include <iostream>
 

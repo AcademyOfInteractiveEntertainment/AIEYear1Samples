@@ -10,5 +10,5 @@ public:
 	virtual ~Behaviour() {}
 
 	// pure virtual function for executing the behaviour
-	virtual Vector2 Update(Agent* agent, float deltaTime) = 0;
+	virtual bool Update(Agent* agent, float deltaTime) = 0;
 };

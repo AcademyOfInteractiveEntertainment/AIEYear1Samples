@@ -1,14 +1,14 @@
 #pragma once
 #include "Agent.h"
 
-class Behaviour
+class Behavior
 {
 public:
 
 	// empty constructors and destructors for base class
-	Behaviour() {}
-	virtual ~Behaviour() {}
+	Behavior() {}
+	virtual ~Behavior() {}
 
 	// pure virtual function for executing the behaviour
-	virtual Vector2 Update(Agent* agent, float deltaTime) = 0;
+	virtual bool Update(Agent* agent, float deltaTime) = 0;
 };
