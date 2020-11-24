@@ -1,0 +1,43 @@
+# This workflow sets up and runs MSBuild and VSTest
+# to build and test a Visual Studio solution.
+
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  run-msbuild:
+    runs-on: windows-latest
+    name: Run MSBuild
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Debug, Release]
+        platform: [x86, x64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.1.0
+        id: checkout_code
+
+      - name: Install VS Build Tools 16.4.2
+        working-directory: .\
+        run: |
+          $VSCONFIGPATH = Resolve-Path ".\.github\workflows\configs\.vsconfig" | select -ExpandProperty Path
+          curl https://download.visualstudio.microsoft.com/download/pr/f6473c9f-a5f6-4249-af28-c2fd14b6a0fb/908c4cb0b90d42c9cb6d22b3e21dd50111aea046c7c4636b88ba9d7c888f4aeb/vs_BuildTools.exe --output vs_BuildTools.exe
+          Start-Process -FilePath .\vs_BuildTools.exe -ArgumentList "--quiet", "--wait", "--norestart", "--config $VSCONFIGPATH" -Wait -PassThru
+        # Download for build tools sourced from https://docs.microsoft.com/en-us/visualstudio/releases/2019/history
+        # See MS Docs for CLI switches https://docs.microsoft.com/en-us/visualstudio/install/command-line-parameter-examples?view=vs-2019
+        # Keep this updated with whatever the current IT supported version of VS is
+
+      - name: Setup MSBuild and add to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+        id: setup_msbuild
+        with:
+          vs-version: '[16.4,16.5)'
+        # Keep this updated with whatever the current IT supported version of VS is
+
+      - name: Run MSBuild
+        id: run_msbuild
+        working-directory: .\
+        run: msbuild -m ".\AIE Student Samples.sln" -p:Configuration=${{ matrix.configuration }} -p:Platform=${{ matrix.platform }}
