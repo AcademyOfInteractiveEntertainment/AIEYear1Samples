@@ -39,6 +39,11 @@ jobs:
           vs-version: '[16.4,16.5)'
         # Keep this updated with whatever the current IT supported version of VS is
 
+      - name: Restore Packages
+        id: restore_packs
+        working-directory: .\
+        run: msbuild -t:restore
+
       - name: Run MSBuild
         id: run_msbuild
         working-directory: .\
