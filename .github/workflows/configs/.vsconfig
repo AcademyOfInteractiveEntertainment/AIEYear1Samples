@@ -16,6 +16,7 @@
     "Microsoft.VisualStudio.Workload.VCTools",
     "Microsoft.VisualStudio.Component.NuGet.BuildTools",
     "Microsoft.NetCore.Component.SDK",
-    "Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools"
+    "Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools",
+    "Microsoft.VisualStudio.Component.NuGet"
   ]
 }
