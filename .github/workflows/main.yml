@@ -30,13 +30,27 @@ jobs:
         #
         # Download for build tools sourced from https://docs.microsoft.com/en-us/visualstudio/releases/2019/history
         # See MS Docs for CLI switches https://docs.microsoft.com/en-us/visualstudio/install/command-line-parameter-examples?view=vs-2019
+        #
         # Keep this updated with whatever the current IT supported version of VS is
 
       - name: Setup MSBuild and add to PATH
         uses: microsoft/setup-msbuild@v1.0.2
         id: setup_msbuild
+        continue-on-error: true
         with:
           vs-version: '[16.4,16.5)'
+        # Keep this updated with whatever the current IT supported version of VS is
+
+      - name: Fallback MSBuild Setup
+        if: steps.setup_msbuild.outcome != 'success'
+        run: |
+          $installationPath = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools"
+          if ($installationPath -and (test-path "$installationPath\Common7\Tools\vsdevcmd.bat")) {
+            & "${env:COMSPEC}" /s /c "`"$installationPath\Common7\Tools\vsdevcmd.bat`" -no_logo && set" | foreach-object {
+              $name, $value = $_ -split '=', 2
+              set-content env:\"$name" $value
+            }
+          }
         # Keep this updated with whatever the current IT supported version of VS is
 
       - name: Restore Packages
