@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Raylib;
-using static Raylib.Raylib;
+using Raylib_cs;
 
-namespace Project2D
+namespace RaylibStarterCS
 {
-    class Program
-    {
-        static void Main(string[] args)
+	class Program
+	{
+		static void Main(string[] args)
         {
             Game game = new Game();
 
-            SetTargetFPS(60);
-            InitWindow(640, 480, "Hello World");
+            Raylib.InitWindow(640, 480, "Hello World");
 
             game.Init();
 
-            while (!WindowShouldClose())
+            while (!Raylib.WindowShouldClose())
             {
                 game.Update();
                 game.Draw();
@@ -27,7 +21,7 @@ namespace Project2D
 
             game.Shutdown();
 
-            CloseWindow();
+            Raylib.CloseWindow();
         }
-    }
+	}
 }
