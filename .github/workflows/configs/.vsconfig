@@ -15,6 +15,7 @@
     "Microsoft.VisualStudio.Component.VC.ASAN",
     "Microsoft.VisualStudio.Workload.VCTools",
     "Microsoft.VisualStudio.Component.NuGet.BuildTools",
+    "Microsoft.NetCore.Component.SDK",
     "Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools"
   ]
 }
