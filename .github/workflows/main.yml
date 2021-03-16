@@ -43,7 +43,7 @@ jobs:
         #
         # Keep this updated with whatever the current IT supported version of VS is
 
-      - name: Fallback MSBuild Setup
+      - name: Workaround - Fallback MSBuild Setup
         if: steps.setup_msbuild.outcome != 'success'
         run: |
           $installationPath = "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools"
