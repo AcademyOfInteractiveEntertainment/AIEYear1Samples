@@ -54,19 +54,22 @@ jobs:
           }
         # Keep this updated with whatever the current IT supported version of VS is
 
-      - name: Workaround - Clean NuGet Package Cache
-        run: |
-          dotnet clean '.\AIE Student Samples.sln' --configuration ${{ matrix.configuration }}
-          dotnet nuget locals all --clear
-        # See GitHub Issues: actions/setup-dotnet#155
-
-
       - name: Restore Packages
         id: restore_packs
+        continue-on-error: true
         working-directory: .\
         run: msbuild -t:restore
         # Note: This approach only works for PackageReference style packages,
         # which is what Sam used to include Raylib 3.5.0
+
+      - name: Workaround - Clean NuGet Package Cache and Retry Restore Packages
+        if: steps.restore_packs.outcome != 'success'
+        run: |
+          dotnet clean '.\AIE Student Samples.sln' --configuration ${{ matrix.configuration }}
+          dotnet nuget locals all --clear
+          msbuild -t:restore
+        # See GitHub Issues: actions/setup-dotnet#155
+
 
       - name: Run MSBuild
         id: run_msbuild
