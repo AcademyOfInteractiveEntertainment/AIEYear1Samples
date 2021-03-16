@@ -54,6 +54,13 @@ jobs:
           }
         # Keep this updated with whatever the current IT supported version of VS is
 
+      - name: Workaround - Clean NuGet Package Cache
+        run: |
+          dotnet clean '.\AIE Student Samples.sln' --configuration ${{ matrix.configuration }}
+          dotnet nuget locals all --clear
+        # See GitHub Issues: actions/setup-dotnet#155
+
+
       - name: Restore Packages
         id: restore_packs
         working-directory: .\
