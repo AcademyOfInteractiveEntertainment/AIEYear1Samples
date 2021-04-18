@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Agents", "AI_Agents\AI_A
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Raylib", "Raylib\Bindings\Raylib.shproj", "{F660FF67-D70E-4AE0-9080-D922243E9B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaylibStarterCS", "RaylibStarterCS\RaylibStarterCS.csproj", "{BE6734CB-FA50-4A17-9283-95CF7F16A3B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaylibStarterCS", "RaylibStarterCS\RaylibStarterCS.csproj", "{BE6734CB-FA50-4A17-9283-95CF7F16A3B0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Flee", "AI_Flee\AI_Flee.vcxproj", "{B15B71F6-83B8-4DBF-AD7E-0DEF0AD1D729}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Graphs", "CDDS_Graphs\CDDS_Graphs.vcxproj", "{2DAC1653-0AB8-4036-B597-FF4D4152BE6E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Agents_IBehaviour", "AI_Agents_IBehaviour\AI_Agents_IBehaviour.vcxproj", "{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntroCPP_BinaryFileIO_NPCData", "IntroCPP_BinaryFileIO_NPCData\IntroCPP_BinaryFileIO_NPCData.vcxproj", "{7544D2EA-300C-4AEB-AA7F-438762AE001F}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -344,6 +346,16 @@ Global
 		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x64.Build.0 = Release|x64
 		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x86.ActiveCfg = Release|Win32
 		{C7FC8CCD-3D44-4F42-A3A0-885857776EDF}.Release|x86.Build.0 = Release|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Debug|x64.ActiveCfg = Debug|x64
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Debug|x64.Build.0 = Debug|x64
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Debug|x86.ActiveCfg = Debug|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Debug|x86.Build.0 = Debug|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Release|x64.ActiveCfg = Release|x64
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Release|x64.Build.0 = Release|x64
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Release|x86.ActiveCfg = Release|Win32
+		{7544D2EA-300C-4AEB-AA7F-438762AE001F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
