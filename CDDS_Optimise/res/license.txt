@@ -1,0 +1,10 @@
+Miscellaneous 2D objects, items, and effects from Sparklin Labs' Superpowers HTML5 game maker.
+https://opengameart.org/content/superpowers-assets-various-2d
+
+Superpowers has a variety of free assets: 2D sprites, backgrounds, 3D models, sound effects, music, and animations. These are the effects, items, and objects that don't fit into the other categories of assets: http://opengameart.org/content/superpowers-asset-packs
+
+They make periodic updates to their asset packs. You can always find the latest version of the full asset pack at https://github.com/sparklinlabs/superpowers-asset-packs
+
+UPDATE 2/8/2021: included new/edited content they added between 3/18/2016 and 2/8/2021
+Copyright/Attribution Notice: 
+Creative Commons Zero: http://creativecommons.org/publicdomain/zero/1.0/ Attribution is not required but appreciated. Placing a link to http://superpowers-html5.com/ somewhere would be awesome :)
