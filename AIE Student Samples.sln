@@ -63,6 +63,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntroCPP_BinaryFileIO_NPCDa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Optimise", "CDDS_Optimise\CDDS_Optimise.vcxproj", "{5D2738E1-A166-40F6-936E-278C0AC90C7B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_NodeGrid", "AI_NodeGrid\AI_NodeGrid.vcxproj", "{FEC2B69C-42D3-49D0-97BE-457E922772C3}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raylib\Bindings\Raylib.projitems*{f660ff67-d70e-4ae0-9080-d922243e9b6e}*SharedItemsImports = 13
@@ -396,6 +398,16 @@ Global
 		{5D2738E1-A166-40F6-936E-278C0AC90C7B}.Release|x64.Build.0 = Release|x64
 		{5D2738E1-A166-40F6-936E-278C0AC90C7B}.Release|x86.ActiveCfg = Release|Win32
 		{5D2738E1-A166-40F6-936E-278C0AC90C7B}.Release|x86.Build.0 = Release|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Debug|x64.ActiveCfg = Debug|x64
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Debug|x64.Build.0 = Debug|x64
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Debug|x86.ActiveCfg = Debug|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Debug|x86.Build.0 = Debug|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Release|Any CPU.ActiveCfg = Release|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Release|x64.ActiveCfg = Release|x64
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Release|x64.Build.0 = Release|x64
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Release|x86.ActiveCfg = Release|Win32
+		{FEC2B69C-42D3-49D0-97BE-457E922772C3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
