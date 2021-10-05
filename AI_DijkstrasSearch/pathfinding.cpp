@@ -10,6 +10,11 @@ namespace pathfinding
 		return (i->gScore < j->gScore); 
 	}
 
+	void Node::ConnectTo(Node* other, float cost)
+	{
+		connections.push_back(Edge(other, cost));
+	}
+
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode)
 	{
 		//Validate the input
