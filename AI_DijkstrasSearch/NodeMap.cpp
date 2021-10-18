@@ -28,7 +28,8 @@ namespace pathfinding
 				char tile = x < line.size() ? line[x] : emptySquare;
 
 				// create a node for anything but a '.' character
-				nodes[x + width * y] = tile == emptySquare ? nullptr : new Node(x * cellSize, y * cellSize);
+				// position it in the middle of the cell, hence the +0.5f's
+				nodes[x + width * y] = tile == emptySquare ? nullptr : new Node((x+0.5f) * cellSize, (y+0.5f) * cellSize);
 			}
 		}
 
@@ -93,11 +94,22 @@ namespace pathfinding
 					for (int i = 0; i < node->connections.size(); i++)
 					{
 						Node* other = node->connections[i].target;
-						DrawLine((x + 0.5f) * cellSize, (y + 0.5f) * cellSize, other->position.x + 0.5f * cellSize, other->position.y + 0.5f * cellSize, lineColor);
+						DrawLine(node->position.x, node->position.y, other->position.x, other->position.y, lineColor);
 					}
 				}
 			}
 		}
+	}
+
+	Node* NodeMap::GetClosestNode(Vector2 worldPos)
+	{
+		int i = worldPos.x / cellSize;
+		if (i < 0 || i >= width) return nullptr;
+
+		int j = worldPos.y / cellSize;
+		if (j < 0 || j >= height) return nullptr;
+
+		return GetNode(i, j);
 	}
 }
 

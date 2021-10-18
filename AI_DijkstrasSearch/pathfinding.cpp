@@ -41,6 +41,7 @@ namespace pathfinding
 		//Add the starting node to openList
 		openList.push_back(startNode);
 
+
 		while (!openList.empty())
 		{
 			//Sort openList based on gScore using the function created above
@@ -111,6 +112,12 @@ namespace pathfinding
 		}
 
 		return path;
+	}
+
+	void DrawPath(std::vector<Node*>& path, Color lineColor)
+	{
+		for (int i = 1; i < path.size(); i++)
+			DrawLine(path[i - 1]->position.x, path[i - 1]->position.y, path[i]->position.x, path[i]->position.y, lineColor);
 	}
 
 	void DrawNode(Node* node, bool selected)

@@ -17,7 +17,7 @@ namespace pathfinding {
 	struct Node {
 
 		Node() {}
-		Node(float x, float y) { position.x = x; position.y = y; }
+		Node(float x, float y) { position.x = x; position.y = y; gScore = 0; previous = nullptr; }
 
 		Vector2 position;
 
@@ -30,6 +30,7 @@ namespace pathfinding {
 	};
 
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
+	void DrawPath(std::vector<Node*>& path, Color lineColor);
 	void DrawNode(Node* node, bool selected = false);
 	void DrawGraph(Node* node, std::vector<Node*>* drawnList);
 }

@@ -19,6 +19,7 @@
 #include <iostream>
 #include "pathfinding.h"
 #include "NodeMap.h"
+#include "PathAgent.h"
 
 using namespace pathfinding;
 
@@ -70,7 +71,7 @@ int main(int argc, char* argv[])
 	asciiMap.push_back("000000000000");
 	asciiMap.push_back("010111011100");
 	asciiMap.push_back("010101110110");
-	asciiMap.push_back("010100000000");
+	asciiMap.push_back("011100000010");
 	asciiMap.push_back("010111111110");
 	asciiMap.push_back("010000001000");
 	asciiMap.push_back("011111111110");
@@ -80,10 +81,20 @@ int main(int argc, char* argv[])
 	Node* start = nodeMap.GetNode(1, 1);
 	Node* end = nodeMap.GetNode(10, 2);
 	std::vector<Node*> nodeMapPath = DijkstrasSearch(start, end);
+	Color lineColor = { 255, 255, 255, 255 };
 
-	// Main game loop
-	while (!WindowShouldClose())    // Detect window close button or ESC key
-	{
+	PathAgent agent;
+	agent.SetNode(start);
+	agent.speed = 64;
+
+    float time = (float)GetTime();
+    float deltaTime;
+    // Main game loop
+    while (!WindowShouldClose())    // Detect window close button or ESC key
+    {
+        float fTime = (float)GetTime();
+        deltaTime = fTime - time;
+        time = fTime;
 		// Update
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
@@ -91,35 +102,33 @@ int main(int argc, char* argv[])
 
 		// Draw
 		//----------------------------------------------------------------------------------
-		BeginDrawing();
+        BeginDrawing();
 
-		ClearBackground(BLACK);
+        ClearBackground(BLACK);
 
-		bool drawNodeMap = true;
+        bool drawNodeMap = true;
 
-		if (!drawNodeMap)
-		{
-			//Draw the graph
-			std::vector<Node*>* drawnList = new std::vector<Node*>();
-			DrawGraph(a, drawnList);
-			delete drawnList;
+        nodeMap.Draw(true);
+        DrawPath(agent.path, lineColor);
 
-			//Draw the shortest path
-			for (Node* node : shortestPath) {
-				DrawNode(node, true);
-			}
-		}
-		else
-		{
-			nodeMap.Draw(true);
-			for (Node* node : nodeMapPath) {
-				DrawNode(node, true);
-			}
-		}
+        // read mouseclicks, left for start node, end for right node
+        if (IsMouseButtonPressed(0))
+        {
+            Vector2 mousePos = GetMousePosition();
+            Node* end = nodeMap.GetClosestNode(mousePos);
+            agent.GoToNode(end);
+        }
 
+        //if (IsMouseButtonPressed(1))
+        //{
+        //	Vector2 mousePos = GetMousePosition();
+        //	end = nodeMap.GetClosestNode(mousePos);
+        //	nodeMapPath = DijkstrasSearch(start, end);
+        //}
+        agent.Update(deltaTime);
+        agent.Draw();
 
-
-		EndDrawing();
+        EndDrawing();
 		//----------------------------------------------------------------------------------
 	}
 

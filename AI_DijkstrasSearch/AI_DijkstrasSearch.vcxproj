@@ -169,10 +169,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NodeMap.cpp" />
+    <ClCompile Include="PathAgent.cpp" />
     <ClCompile Include="pathfinding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NodeMap.h" />
+    <ClInclude Include="PathAgent.h" />
     <ClInclude Include="pathfinding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
