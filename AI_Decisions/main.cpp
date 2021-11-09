@@ -21,6 +21,8 @@
 #include "NodeMap.h"
 #include "Agent.h"
 #include "GotoPointBehaviour.h"
+#include "WanderBehaviour.h"
+#include "FollowBehaviour.h"
 
 using namespace pathfinding;
 
@@ -87,6 +89,13 @@ int main(int argc, char* argv[])
 	Agent agent(&nodeMap, new GotoPointBehaviour());
 	agent.SetNode(start);
 
+	Agent agent2(&nodeMap, new WanderBehaviour());
+	agent2.SetNode(nodeMap.GetRandomNode());
+
+	Agent agent3(&nodeMap, new FollowBehaviour(&agent));
+	agent3.SetNode(nodeMap.GetRandomNode());
+	agent3.SetSpeed(32);
+
     float time = (float)GetTime();
     float deltaTime;
     // Main game loop
@@ -113,6 +122,12 @@ int main(int argc, char* argv[])
 
         agent.Update(deltaTime);
         agent.Draw();
+
+		agent2.Update(deltaTime);
+		agent2.Draw();
+
+		agent3.Update(deltaTime);
+		agent3.Draw();
 
         EndDrawing();
 		//----------------------------------------------------------------------------------

@@ -20,6 +20,8 @@ namespace pathfinding
 		// utility functions 
 		Node* GetNode(int x, int y) { return nodes[x + width * y]; }
 		Node* GetClosestNode(Vector2 worldPos);
+
+		Node* GetRandomNode();
 	};
 }
 

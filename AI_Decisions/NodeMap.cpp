@@ -111,6 +111,18 @@ namespace pathfinding
 
 		return GetNode(i, j);
 	}
+
+	Node* NodeMap::GetRandomNode()
+	{
+		Node* node = nullptr;
+		while (node == nullptr)
+		{
+			int x = rand() % width;
+			int y = rand() % height;
+			node = GetNode(x, y);
+		}
+		return node;
+	}
 }
 
 

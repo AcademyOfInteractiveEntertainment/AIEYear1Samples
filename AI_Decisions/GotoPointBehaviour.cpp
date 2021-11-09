@@ -4,7 +4,7 @@
 
 namespace pathfinding
 {
-    void GotoPointBehaviour::Do(Agent* agent)
+    void GotoPointBehaviour::Update(Agent* agent, float deltaTime)
     {
         // read mouseclicks, left for start node, end for right node
         if (IsMouseButtonPressed(0))

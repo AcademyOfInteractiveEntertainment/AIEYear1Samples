@@ -16,10 +16,18 @@ namespace pathfinding
 		void Draw();
 
 		void GoTo(Vector2 point);
+		void GoTo(Node* node);
 
 		std::vector<Node*>& GetPath() { return pathAgent.path; }
 
 		void SetNode(Node* node);
+
+		bool PathComplete();
+
+		NodeMap* GetNodeMap() { return nodeMap; }
+		Vector2 GetPosition() { return pathAgent.position; }
+
+		void SetSpeed(float speed) { pathAgent.speed = speed; }
 
 	private:
 		PathAgent pathAgent;

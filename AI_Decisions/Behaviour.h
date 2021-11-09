@@ -7,6 +7,6 @@ namespace pathfinding
 	class Behaviour
 	{
 	public:
-		virtual void Do(Agent* agent) = 0;
+		virtual void Update(Agent* agent, float deltaTime) = 0;
 	};
 }

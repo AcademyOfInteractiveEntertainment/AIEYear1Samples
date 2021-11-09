@@ -6,7 +6,7 @@ namespace pathfinding
 	void Agent::Update(float deltaTime)
 	{
 		if (current)
-			current->Do(this);
+			current->Update(this, deltaTime);
 		pathAgent.Update(deltaTime);
 	}
 
@@ -21,8 +21,18 @@ namespace pathfinding
 		pathAgent.GoToNode(end);
 	}
 
+	void Agent::GoTo(Node* node)
+	{
+		pathAgent.GoToNode(node);
+	}
+
 	void Agent::SetNode(Node* node)
 	{
 		pathAgent.SetNode(node);
+	}
+
+	bool Agent::PathComplete()
+	{
+		return pathAgent.path.empty();
 	}
 }

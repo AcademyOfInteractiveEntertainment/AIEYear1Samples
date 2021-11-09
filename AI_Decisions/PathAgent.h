@@ -20,7 +20,5 @@ namespace pathfinding
 		void SetNode(Node* node);
 		void Update(float deltaTime);
 		void GoToNode(Node* node);
-
-
 	};
 }
