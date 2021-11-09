@@ -3,9 +3,9 @@
 
 namespace pathfinding
 {
-	class GotoPointBehaviour : public Behaviour
-	{
-	public:
-		virtual void Update(Agent* agent, float deltaTime);
-	};
+    class GotoPointBehaviour : public Behaviour
+    {
+    public:
+        virtual void Update(Agent* agent, float deltaTime);
+    };
 }
