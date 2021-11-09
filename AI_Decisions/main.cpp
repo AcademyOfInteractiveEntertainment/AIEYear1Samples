@@ -23,6 +23,7 @@
 #include "GotoPointBehaviour.h"
 #include "WanderBehaviour.h"
 #include "FollowBehaviour.h"
+#include "SelectorBehaviour.h"
 
 using namespace pathfinding;
 
@@ -92,8 +93,9 @@ int main(int argc, char* argv[])
 	Agent agent2(&nodeMap, new WanderBehaviour());
 	agent2.SetNode(nodeMap.GetRandomNode());
 
-	Agent agent3(&nodeMap, new FollowBehaviour(&agent));
+	Agent agent3(&nodeMap, new SelectorBehaviour(new FollowBehaviour(), new WanderBehaviour()));
 	agent3.SetNode(nodeMap.GetRandomNode());
+	agent3.SetTarget(&agent);
 	agent3.SetSpeed(32);
 
     float time = (float)GetTime();

@@ -12,7 +12,7 @@ namespace pathfinding
 
 	void Agent::Draw()
 	{
-		DrawCircle(pathAgent.position.x, pathAgent.position.y, 8, { 255,255,0,255 });
+		DrawCircle(pathAgent.position.x, pathAgent.position.y, 8, color);
 	}
 
 	void Agent::GoTo(Vector2 point)

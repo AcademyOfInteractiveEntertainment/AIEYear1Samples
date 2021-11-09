@@ -10,7 +10,7 @@ namespace pathfinding
 	{
 	public:
 		Agent();
-		Agent(NodeMap* _nodeMap, Behaviour* _behaviour) : current(_behaviour), nodeMap(_nodeMap) {}
+		Agent(NodeMap* _nodeMap, Behaviour* _behaviour) : current(_behaviour), nodeMap(_nodeMap), color({ 255, 255, 0, 255 }) {}
 
 		void Update(float deltaTime);
 		void Draw();
@@ -29,9 +29,17 @@ namespace pathfinding
 
 		void SetSpeed(float speed) { pathAgent.speed = speed; }
 
+		void SetTarget(Agent* _target) { target = _target; }
+		Agent* GetTarget() { return target; }
+		void SetColor(Color col) { color = col; }
+
 	private:
 		PathAgent pathAgent;
 		Behaviour* current;
 		NodeMap* nodeMap;
+
+		Agent* target;
+
+		Color color;
 	};
 }
