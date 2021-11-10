@@ -5,20 +5,33 @@
 
 namespace pathfinding
 {
+    SelectorBehaviour::~SelectorBehaviour()
+    {
+        delete b1;
+        delete b2;
+    }
+
     void SelectorBehaviour::Update(Agent* agent, float deltaTime)
     {
-        Behaviour* selected;
-
         if (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < agent->GetNodeMap()->cellSize * 5)
         {
-            selected = b1;
-            agent->SetColor({ 255, 0, 0, 255 });
+            SetBehaviour(b1);
+            agent->SetColor({ 255, 0, 0, 255 }); //red
         }
         else
         {
-            selected = b2;
-            agent->SetColor({ 0, 255, 255, 255 });
+            SetBehaviour(b2);
+            agent->SetColor({ 0, 255, 255, 255 }); // cyan
         }
         selected->Update(agent, deltaTime);
+    }
+
+    void SelectorBehaviour::SetBehaviour(Behaviour* b, Agent* agent)
+    {
+        if (selected != b)
+        {
+            selected = b;
+            agent->Reset();
+        }
     }
 }

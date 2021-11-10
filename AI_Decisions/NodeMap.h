@@ -9,6 +9,8 @@ namespace pathfinding
 	class NodeMap
 	{
 	public:
+		~NodeMap();
+
 		int width, height;
 		float cellSize;
 
@@ -23,5 +25,6 @@ namespace pathfinding
 
 		Node* GetRandomNode();
 	};
+
 }
 

@@ -4,6 +4,11 @@
 
 namespace pathfinding
 {
+    NodeMap::~NodeMap()
+    {
+        delete[] nodes;
+    }
+
     void NodeMap::Initialise(std::vector<std::string> asciiMap)
     {
         const char emptySquare = '0';

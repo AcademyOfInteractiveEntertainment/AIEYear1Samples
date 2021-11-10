@@ -3,6 +3,11 @@
 
 namespace pathfinding
 {
+    Agent::~Agent()
+    {
+        delete current;
+    }
+
     void Agent::Update(float deltaTime)
     {
         if (current)
