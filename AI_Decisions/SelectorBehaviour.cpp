@@ -15,12 +15,12 @@ namespace pathfinding
     {
         if (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < agent->GetNodeMap()->cellSize * 5)
         {
-            SetBehaviour(b1);
+            SetBehaviour(b1, agent);
             agent->SetColor({ 255, 0, 0, 255 }); //red
         }
         else
         {
-            SetBehaviour(b2);
+            SetBehaviour(b2, agent);
             agent->SetColor({ 0, 255, 255, 255 }); // cyan
         }
         selected->Update(agent, deltaTime);
