@@ -11,6 +11,8 @@ namespace pathfinding
 
 	public:
 		FollowBehaviour() { lastTargetPosition.x = 0; lastTargetPosition.y = 0; }
+
+		virtual void Enter(Agent* agent);
 		virtual void Update(Agent* agent, float deltaTime);
     };
 }

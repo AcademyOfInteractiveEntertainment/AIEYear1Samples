@@ -24,6 +24,9 @@
 #include "WanderBehaviour.h"
 #include "FollowBehaviour.h"
 #include "SelectorBehaviour.h"
+#include "DistanceCondition.h"
+#include "State.h"
+#include "FiniteStateMachine.h"
 
 using namespace pathfinding;
 
@@ -93,7 +96,22 @@ int main(int argc, char* argv[])
 	Agent agent2(&nodeMap, new WanderBehaviour());
 	agent2.SetNode(nodeMap.GetRandomNode());
 
-	Agent agent3(&nodeMap, new SelectorBehaviour(new FollowBehaviour(), new WanderBehaviour()));
+	// set up a FSM, we're going to hav two states with their own conditions
+	DistanceCondition* closerThan5 = new DistanceCondition(5.0f * nodeMap.cellSize, true);
+	DistanceCondition* furtherThan7 = new DistanceCondition(7.0f * nodeMap.cellSize, false);
+
+	// register these states with the FSM, so its responsible for deleting them now
+	State* wanderState = new State(new WanderBehaviour());
+	State* followState = new State(new FollowBehaviour());
+	wanderState->AddTransition(closerThan5, followState);
+	followState->AddTransition(furtherThan7, wanderState);
+
+	// make a finite state machine that starts off wandering
+	FiniteStateMachine* fsm = new FiniteStateMachine(wanderState);
+	fsm->AddState(wanderState);
+	fsm->AddState(followState);
+
+	Agent agent3(&nodeMap, fsm);
 	agent3.SetNode(nodeMap.GetRandomNode());
 	agent3.SetTarget(&agent);
 	agent3.SetSpeed(32);

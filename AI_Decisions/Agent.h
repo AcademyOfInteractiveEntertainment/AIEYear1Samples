@@ -10,7 +10,7 @@ namespace pathfinding
 	{
 	public:
 		Agent();
-		Agent(NodeMap* _nodeMap, Behaviour* _behaviour) : current(_behaviour), nodeMap(_nodeMap), color({ 255, 255, 0, 255 }) {}
+		Agent(NodeMap* _nodeMap, Behaviour* _behaviour);
 		~Agent();
 
 		void Update(float deltaTime);

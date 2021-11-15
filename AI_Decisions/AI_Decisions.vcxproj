@@ -168,6 +168,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="DistanceCondition.cpp" />
+    <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="FollowBehaviour.cpp" />
     <ClCompile Include="GotoPointBehaviour.cpp" />
     <ClCompile Include="main.cpp" />
@@ -175,11 +177,15 @@
     <ClCompile Include="PathAgent.cpp" />
     <ClCompile Include="pathfinding.cpp" />
     <ClCompile Include="SelectorBehaviour.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="Condition.h" />
+    <ClInclude Include="DistanceCondition.h" />
+    <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="FollowBehaviour.h" />
     <ClInclude Include="GotoPointBehaviour.h" />
     <ClInclude Include="NodeMap.h" />
