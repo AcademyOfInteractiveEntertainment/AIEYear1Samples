@@ -16,7 +16,8 @@ namespace pathfinding
             }
         }
 
-        if (newBehaviour != nullptr && newBehaviour != currentBehaviour)
+        if (newBehaviour != nullptr 
+            && newBehaviour != currentBehaviour)
         {
             if (currentBehaviour)
                 currentBehaviour->Exit(agent);
