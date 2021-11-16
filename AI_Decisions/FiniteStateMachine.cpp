@@ -6,7 +6,7 @@ namespace pathfinding
 {
     FiniteStateMachine::~FiniteStateMachine()
     {
-        // the FSM owns every Condition and Behaviour pair assigned to it
+        // the FSM owns every State assigned to it
         for (State* s : m_states)
             delete s;
     }
@@ -18,18 +18,20 @@ namespace pathfinding
 
     void FiniteStateMachine::Update(Agent* agent, float deltaTime)
     {
+        State* newState = nullptr;
+
         // check the current state's transitions
         for (State::Transition t : m_currentState->GetTransitions())
         {
             if (t.condition->IsTrue(agent))
-               m_newState = t.targetState;
+               newState = t.targetState;
         }
 
         // if we've changed state, clean up the old one and initialise the new one
-        if (m_newState != nullptr && m_newState != m_currentState)
+        if (newState != nullptr && newState != m_currentState)
         {
             m_currentState->Exit(agent);
-            m_currentState = m_newState;
+            m_currentState = newState;
             m_currentState->Enter(agent);
         }
 

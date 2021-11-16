@@ -13,10 +13,9 @@ namespace pathfinding
         std::vector<State*> m_states;
 
         State* m_currentState;
-        State* m_newState;
 
     public:
-        FiniteStateMachine(State* s) : m_currentState(s), m_newState(nullptr) {}
+        FiniteStateMachine(State* s) : m_currentState(s) {}
         virtual ~FiniteStateMachine();
         void AddState(State* s) { m_states.push_back(s); }
 

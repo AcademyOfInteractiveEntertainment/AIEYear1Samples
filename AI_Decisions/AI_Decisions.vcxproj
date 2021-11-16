@@ -178,6 +178,7 @@
     <ClCompile Include="pathfinding.cpp" />
     <ClCompile Include="SelectorBehaviour.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="UtilityAI.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +193,7 @@
     <ClInclude Include="PathAgent.h" />
     <ClInclude Include="pathfinding.h" />
     <ClInclude Include="SelectorBehaviour.h" />
+    <ClInclude Include="UtilityAI.h" />
     <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
