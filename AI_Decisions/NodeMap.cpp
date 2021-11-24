@@ -148,8 +148,6 @@ namespace pathfinding
 
     bool NodeMap::IsVisibleFrom(Node* start, Node* end)
     {
-        Vector2 position = start->position;
-
         // calculate a vector from start to end that is one cellsize in length
         Vector2 delta = Vector2Subtract(end->position, start->position);
         float distance =Vector2Distance(end->position, start->position);
