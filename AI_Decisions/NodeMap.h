@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "pathfinding.h"
 
 namespace pathfinding
@@ -24,6 +25,9 @@ namespace pathfinding
 		Node* GetClosestNode(Vector2 worldPos);
 
 		Node* GetRandomNode();
+
+		bool IsVisibleFrom(Node* start, Node* end);
+		std::vector<Node*> SmoothPath(std::vector<Node*> path);
 	};
 
 }

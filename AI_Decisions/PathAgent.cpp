@@ -1,4 +1,5 @@
 #include "PathAgent.h"
+#include "NodeMap.h"
 
 namespace pathfinding
 {
@@ -65,6 +66,7 @@ namespace pathfinding
     void PathAgent::GoToNode(Node* node)
     {
         path = DijkstrasSearch(currentNode, node);
+        path = nodeMap->SmoothPath(path);
         currentIndex = 0;
     }
 }

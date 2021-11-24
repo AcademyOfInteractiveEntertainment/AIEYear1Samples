@@ -5,6 +5,8 @@
 
 namespace pathfinding
 {
+	class NodeMap;
+
 	class PathAgent
 	{
 	public:
@@ -16,6 +18,7 @@ namespace pathfinding
 		Node* currentNode;
 
 		float speed;
+		NodeMap* nodeMap;
 
 		void SetNode(Node* node);
 		void Update(float deltaTime);

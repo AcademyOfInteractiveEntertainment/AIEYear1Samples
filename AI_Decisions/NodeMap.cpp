@@ -1,6 +1,7 @@
 #include <iostream>
 #include "NodeMap.h"
 #include "raylib.h"
+#include <raymath.h>
 
 namespace pathfinding
 {
@@ -61,6 +62,22 @@ namespace pathfinding
                     {
                         node->ConnectTo(nodeSouth, 1);
                         nodeSouth->ConnectTo(node, 1);
+                    }
+
+                    //// diagonals - look to (-1,-1)
+                    Node* nodeSouthWest = (x == 0 || y== 0) ? nullptr : GetNode(x - 1, y-1);
+                    if (nodeSouthWest)
+                    {
+                        node->ConnectTo(nodeSouthWest, 1.414f); // TODO weights
+                        nodeSouthWest->ConnectTo(node, 1.414f);
+                    }
+
+                    // and (+1, -1)
+                    Node* nodeSouthEast = (x == width-1 || y == 0) ? nullptr : GetNode(x+1, y - 1);
+                    if (nodeSouthEast)
+                    {
+                        node->ConnectTo(nodeSouthEast, 1.414f);
+                        nodeSouthEast->ConnectTo(node, 1.414f);
                     }
                 }
             }
@@ -127,6 +144,51 @@ namespace pathfinding
             node = GetNode(x, y);
         }
         return node;
+    }
+
+    bool NodeMap::IsVisibleFrom(Node* start, Node* end)
+    {
+        Vector2 position = start->position;
+
+        // calculate a vector from start to end that is one cellsize in length
+        Vector2 delta = Vector2Subtract(end->position, start->position);
+        float distance =Vector2Distance(end->position, start->position);
+        delta = Vector2Scale(delta, cellSize/distance);
+
+        // step forward in that direction one cell at a time from start towards end
+        for (float cells = 1.0f; cells < distance/cellSize; cells += 1.0f)
+        {
+            Vector2 testPosition = Vector2Add(start->position, Vector2Scale(delta, cells));
+            // if the square below in unpassable, then we don;t have line of sight from start to end
+            if (GetClosestNode(testPosition) == nullptr)
+                return false;
+        }
+
+        // we've travelled the whole path without hitting an obstacle!
+        return true;
+    }
+
+    std::vector<Node*> NodeMap::SmoothPath(std::vector<Node*> path)
+    {
+        if (path.size() == 0)
+            return path;
+
+        std::vector<Node*> smoothed;
+        Node* start = path[0];
+        smoothed.push_back(start);
+        for (int i = 0; i < path.size(); i++)
+        {
+            // keep stepping over the nodes we can see from start
+            while (i< path.size() -1 && IsVisibleFrom(start, path[i + 1]))
+                i++;
+
+            start = path[i];
+
+            // add the last node we can see to our path, and set it as the new start
+            smoothed.push_back(start);
+        }
+
+        return smoothed;
     }
 }
 

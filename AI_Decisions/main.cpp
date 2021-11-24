@@ -34,57 +34,52 @@ using namespace pathfinding;
 
 int main(int argc, char* argv[])
 {
+    //float weights[] = { 5,1,4 };
+    //int hits[3] = { 0,0,0 };
+    //for (int i = 0; i < 10000; i++)
+    //{
+    //    hits[Utilities::GetRouletteIndex(weights, 3)]++;
+    //}
+
     // Initialization
     //--------------------------------------------------------------------------------------
     int screenWidth = 800;
-    int screenHeight = 450;
+    int screenHeight = 500;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
 
-    //Nodes
-    Node* a = new Node();
-    a->position = Vector2{ 125.0f, 75.0f };
-    Node* b = new Node();
-    b->position = Vector2{ 250.0f, 75.0f };
-    Node* c = new Node();
-    c->position = Vector2{ 250.0f, 150.0f };
-    Node* d = new Node();
-    d->position = Vector2{ 250.0f, 225.0f };
-    Node* e = new Node();
-    e->position = Vector2{ 187.0f, 300.0f };
-    Node* f = new Node();
-    f->position = Vector2{ 125.0f, 225.0f };
-    //Edges
-    a->connections.push_back(Edge{ b, 2 });
-    a->connections.push_back(Edge{ f, 5 });
-    b->connections.push_back(Edge{ c, 3 });
-    c->connections.push_back(Edge{ a, 3 });
-    c->connections.push_back(Edge{ d, 1 });
-    d->connections.push_back(Edge{ e, 4 });
-    d->connections.push_back(Edge{ f, 4 });
-    f->connections.push_back(Edge{ e, 6 });
-
-    std::vector<Node*> shortestPath = DijkstrasSearch(a, e);
-
-    for (Node* node : shortestPath) {
-        std::cout << node->gScore << std::endl;
-    }
-
     // create a map of nodes from some grid-based ASCII art
     NodeMap nodeMap;
     nodeMap.cellSize = 32;
     std::vector<std::string> asciiMap;
-    asciiMap.push_back("000000000000");
-    asciiMap.push_back("010111011100");
-    asciiMap.push_back("010101110110");
-    asciiMap.push_back("011100000010");
-    asciiMap.push_back("010111111110");
-    asciiMap.push_back("010000001000");
-    asciiMap.push_back("011111111110");
-    asciiMap.push_back("000000000000");
+    //asciiMap.push_back("000000000000");
+    //asciiMap.push_back("010111011100");
+    //asciiMap.push_back("010101110110");
+    //asciiMap.push_back("011100000010");
+    //asciiMap.push_back("010111111110");
+    //asciiMap.push_back("010000001000");
+    //asciiMap.push_back("011111111110");
+    //asciiMap.push_back("000000000000");
+
+    asciiMap.push_back("000000000000000000000000");
+    asciiMap.push_back("011101111111111111111110");
+    asciiMap.push_back("011101111111111111111110");
+    asciiMap.push_back("011101100000000000000110");
+    asciiMap.push_back("011101111111110111111110");
+    asciiMap.push_back("011101111111110111000000");
+    asciiMap.push_back("011101111101110111111110");
+    asciiMap.push_back("011101111101110000011110");
+    asciiMap.push_back("011101111101111111111110");
+    asciiMap.push_back("011111111100000000001110");
+    asciiMap.push_back("011110111101111111111110");
+    asciiMap.push_back("011110111101111111111110");
+    asciiMap.push_back("011110111101111111111110");
+    asciiMap.push_back("011110111111111111111110");
+    asciiMap.push_back("000000000000000000000000");
+
     nodeMap.Initialise(asciiMap);
 
     Node* start = nodeMap.GetNode(1, 1);
