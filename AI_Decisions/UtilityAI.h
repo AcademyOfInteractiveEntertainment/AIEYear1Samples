@@ -13,6 +13,8 @@ namespace pathfinding
         Behaviour* currentBehaviour;
 
     public:
+        ~UtilityAI();
+
         virtual void Update(Agent* agent, float deltaTime);
         void AddBehaviour(Behaviour* b) { m_behaviours.push_back(b); }
     };

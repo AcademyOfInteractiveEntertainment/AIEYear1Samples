@@ -178,6 +178,7 @@
     <ClCompile Include="pathfinding.cpp" />
     <ClCompile Include="SelectorBehaviour.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="Utilities.cpp" />
     <ClCompile Include="UtilityAI.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="PathAgent.h" />
     <ClInclude Include="pathfinding.h" />
     <ClInclude Include="SelectorBehaviour.h" />
+    <ClInclude Include="Utilities.h" />
     <ClInclude Include="UtilityAI.h" />
     <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>

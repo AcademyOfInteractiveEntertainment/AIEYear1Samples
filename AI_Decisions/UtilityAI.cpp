@@ -2,6 +2,12 @@
 
 namespace pathfinding
 {
+    UtilityAI::~UtilityAI()
+    {
+        for (Behaviour* b : m_behaviours)
+            delete b;
+    }
+
     void UtilityAI::Update(Agent* agent, float deltaTime)
     {
         float bestEval = 0;

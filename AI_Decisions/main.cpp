@@ -28,6 +28,7 @@
 #include "State.h"
 #include "FiniteStateMachine.h"
 #include "UtilityAI.h"
+#include "Utilities.h"
 
 using namespace pathfinding;
 
