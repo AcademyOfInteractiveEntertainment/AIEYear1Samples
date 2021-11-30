@@ -10,8 +10,11 @@ namespace pathfinding
 	class PathAgent
 	{
 	public:
-		PathAgent() : currentIndex(-1), currentNode(nullptr), speed(100.0f) {}
+		PathAgent() : currentIndex(-1), currentNode(nullptr), speed(100.0f), acceleration(500.0f) { velocity.x = 0; velocity.y = 0; }
 		Vector2 position;
+		Vector2 velocity;
+
+		float acceleration;
 
 		std::vector<Node*> path;
 		int currentIndex;
@@ -22,6 +25,10 @@ namespace pathfinding
 
 		void SetNode(Node* node);
 		void Update(float deltaTime);
+
+		void UpdateLinear(float deltaTime);
+		void UpdatePhysics(float deltaTime);
+
 		void GoToNode(Node* node);
 	};
 }

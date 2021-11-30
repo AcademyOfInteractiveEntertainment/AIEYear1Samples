@@ -125,6 +125,11 @@ int main(int argc, char* argv[])
         float fTime = (float)GetTime();
         deltaTime = fTime - time;
         time = fTime;
+        
+        // cap the elapsed time for when we debug
+        if (deltaTime > 0.1f)
+            deltaTime = 0.1f;
+
         // Update
         //----------------------------------------------------------------------------------
         // TODO: Update your variables here
@@ -144,18 +149,18 @@ int main(int argc, char* argv[])
         agent.Update(deltaTime);
         agent.Draw();
 
-        agent2.Update(deltaTime);
-        agent2.Draw();
+        //agent2.Update(deltaTime);
+        //agent2.Draw();
 
-        agent3.Update(deltaTime);
-        agent3.Draw();
+        //agent3.Update(deltaTime);
+        //agent3.Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
 
     // De-Initialization
-    //--------------------------------------------------------------------------------------   
+    //--------------------------------------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
