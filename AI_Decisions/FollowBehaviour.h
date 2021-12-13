@@ -2,15 +2,15 @@
 #include "pathfinding.h"
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     class FollowBehaviour : public Behaviour
     {
 	private:
-		Vector2 lastTargetPosition;
+		Vector2 m_lastTargetPosition;
 
 	public:
-		FollowBehaviour() { lastTargetPosition.x = 0; lastTargetPosition.y = 0; }
+		FollowBehaviour() { m_lastTargetPosition.x = 0; m_lastTargetPosition.y = 0; }
 
 		virtual void Enter(Agent* agent);
 		virtual void Update(Agent* agent, float deltaTime);

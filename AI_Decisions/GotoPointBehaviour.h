@@ -1,7 +1,7 @@
 #pragma once
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     class GotoPointBehaviour : public Behaviour
     {

@@ -3,7 +3,7 @@
 #include "NodeMap.h"
 #include <raymath.h>
 
-namespace pathfinding
+namespace AIForGames
 {
     void WanderBehaviour::Enter(Agent* agent)
     {

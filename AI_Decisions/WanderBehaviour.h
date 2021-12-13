@@ -2,7 +2,7 @@
 #include "pathfinding.h"
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
 	class WanderBehaviour : public Behaviour
 	{

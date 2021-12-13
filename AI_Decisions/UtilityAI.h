@@ -2,7 +2,7 @@
 #include <vector>
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     class Agent;
 
@@ -10,7 +10,7 @@ namespace pathfinding
     {
     private:
         std::vector<Behaviour*> m_behaviours;
-        Behaviour* currentBehaviour;
+        Behaviour* m_currentBehaviour;
 
     public:
         ~UtilityAI();

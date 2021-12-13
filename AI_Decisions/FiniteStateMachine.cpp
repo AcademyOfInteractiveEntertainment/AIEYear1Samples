@@ -2,7 +2,7 @@
 #include "Condition.h"
 #include "FiniteStateMachine.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     FiniteStateMachine::~FiniteStateMachine()
     {

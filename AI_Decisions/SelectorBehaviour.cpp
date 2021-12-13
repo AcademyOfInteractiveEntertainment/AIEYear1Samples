@@ -3,34 +3,34 @@
 #include "NodeMap.h"
 #include "raymath.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     SelectorBehaviour::~SelectorBehaviour()
     {
-        delete b1;
-        delete b2;
+        delete m_b1;
+        delete m_b2;
     }
 
     void SelectorBehaviour::Update(Agent* agent, float deltaTime)
     {
-        if (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < agent->GetNodeMap()->cellSize * 5)
+        if (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < agent->GetNodeMap()->m_cellSize * 5)
         {
-            SetBehaviour(b1, agent);
+            SetBehaviour(m_b1, agent);
             agent->SetColor({ 255, 0, 0, 255 }); //red
         }
         else
         {
-            SetBehaviour(b2, agent);
+            SetBehaviour(m_b2, agent);
             agent->SetColor({ 0, 255, 255, 255 }); // cyan
         }
-        selected->Update(agent, deltaTime);
+        m_selected->Update(agent, deltaTime);
     }
 
     void SelectorBehaviour::SetBehaviour(Behaviour* b, Agent* agent)
     {
-        if (selected != b)
+        if (m_selected != b)
         {
-            selected = b;
+            m_selected = b;
             agent->Reset();
         }
     }

@@ -1,50 +1,50 @@
 #include "Agent.h"
 #include "NodeMap.h"
 
-namespace pathfinding
+namespace AIForGames
 {
-    Agent::Agent(NodeMap* _nodeMap, Behaviour* _behaviour) : current(_behaviour), nodeMap(_nodeMap), color({ 255, 255, 0, 255 }) 
+    Agent::Agent(NodeMap* nodeMap, Behaviour* behaviour) : m_current(behaviour), m_nodeMap(nodeMap), m_color({ 255, 255, 0, 255 })
     {
-        pathAgent.nodeMap = nodeMap;
-        current->Enter(this);
-        target = nullptr;
+        m_pathAgent.m_nodeMap = nodeMap;
+        m_current->Enter(this);
+        m_target = nullptr;
     }
 
     Agent::~Agent()
     {
-        delete current;
+        delete m_current;
     }
 
     void Agent::Update(float deltaTime)
     {
-        if (current)
-            current->Update(this, deltaTime);
-        pathAgent.Update(deltaTime);
+        if (m_current)
+            m_current->Update(this, deltaTime);
+        m_pathAgent.Update(deltaTime);
     }
 
     void Agent::Draw()
     {
-        DrawCircle(pathAgent.position.x, pathAgent.position.y, 8, color);
+        DrawCircle(m_pathAgent.m_position.x, m_pathAgent.m_position.y, 8, m_color);
     }
 
     void Agent::GoTo(Vector2 point)
     {
-        Node* end = nodeMap->GetClosestNode(point);
-        pathAgent.GoToNode(end);
+        Node* end = m_nodeMap->GetClosestNode(point);
+        m_pathAgent.GoToNode(end);
     }
 
     void Agent::GoTo(Node* node)
     {
-        pathAgent.GoToNode(node);
+        m_pathAgent.GoToNode(node);
     }
 
     void Agent::SetNode(Node* node)
     {
-        pathAgent.SetNode(node);
+        m_pathAgent.SetNode(node);
     }
 
     bool Agent::PathComplete()
     {
-        return pathAgent.path.empty();
+        return m_pathAgent.m_path.empty();
     }
 }

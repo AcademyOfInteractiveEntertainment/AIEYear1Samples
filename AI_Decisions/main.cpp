@@ -30,7 +30,7 @@
 #include "UtilityAI.h"
 #include "Utilities.h"
 
-using namespace pathfinding;
+using namespace AIForGames;
 
 int main(int argc, char* argv[])
 {
@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 
     // create a map of nodes from some grid-based ASCII art
     NodeMap nodeMap;
-    nodeMap.cellSize = 32;
+    nodeMap.m_cellSize = 32;
     std::vector<std::string> asciiMap;
     //asciiMap.push_back("000000000000");
     //asciiMap.push_back("010111011100");
@@ -94,8 +94,8 @@ int main(int argc, char* argv[])
     agent2.SetNode(nodeMap.GetRandomNode());
 
     // set up a FSM, we're going to have two states with their own conditions
-    DistanceCondition* closerThan5 = new DistanceCondition(5.0f * nodeMap.cellSize, true);
-    DistanceCondition* furtherThan7 = new DistanceCondition(7.0f * nodeMap.cellSize, false);
+    DistanceCondition* closerThan5 = new DistanceCondition(5.0f * nodeMap.m_cellSize, true);
+    DistanceCondition* furtherThan7 = new DistanceCondition(7.0f * nodeMap.m_cellSize, false);
 
     // register these states with the FSM, so its responsible for deleting them now
     State* wanderState = new State(new WanderBehaviour());

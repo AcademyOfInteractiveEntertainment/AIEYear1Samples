@@ -3,10 +3,10 @@
 #include "Agent.h"
 #include "raymath.h"
 
-namespace pathfinding
+namespace AIForGames
 {
 	bool DistanceCondition::IsTrue(Agent* agent)
 	{
-		return (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < distance) == lessThan;
+		return (Vector2Distance(agent->GetPosition(), agent->GetTarget()->GetPosition()) < m_distance) == m_lessThan;
 	}
 }

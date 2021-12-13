@@ -1,6 +1,6 @@
 #include "UtilityAI.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     UtilityAI::~UtilityAI()
     {
@@ -23,14 +23,14 @@ namespace pathfinding
         }
 
         if (newBehaviour != nullptr 
-            && newBehaviour != currentBehaviour)
+            && newBehaviour != m_currentBehaviour)
         {
-            if (currentBehaviour)
-                currentBehaviour->Exit(agent);
-            currentBehaviour = newBehaviour;
-            currentBehaviour->Enter(agent);
+            if (m_currentBehaviour)
+                m_currentBehaviour->Exit(agent);
+            m_currentBehaviour = newBehaviour;
+            m_currentBehaviour->Enter(agent);
         }
 
-        currentBehaviour->Update(agent, deltaTime);
+        m_currentBehaviour->Update(agent, deltaTime);
     }
 }

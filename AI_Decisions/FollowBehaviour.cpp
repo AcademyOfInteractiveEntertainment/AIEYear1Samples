@@ -3,7 +3,7 @@
 #include "NodeMap.h"
 #include "raymath.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     void FollowBehaviour::Enter(Agent* agent)
     {
@@ -18,11 +18,11 @@ namespace pathfinding
         // if so we want to repath towards it
         Agent* target = agent->GetTarget();
 
-        float dist = Vector2Distance(target->GetPosition(), lastTargetPosition);
-        if (dist > agent->GetNodeMap()->cellSize)
+        float dist = Vector2Distance(target->GetPosition(), m_lastTargetPosition);
+        if (dist > agent->GetNodeMap()->m_cellSize)
         {
-            lastTargetPosition = target->GetPosition();
-            agent->GoTo(lastTargetPosition);
+            m_lastTargetPosition = target->GetPosition();
+            agent->GoTo(m_lastTargetPosition);
         }
     }
 
@@ -31,7 +31,7 @@ namespace pathfinding
         Agent* target = agent->GetTarget();
         float dist = Vector2Distance(target->GetPosition(), agent->GetPosition());
 
-        float eval = 10 * agent->GetNodeMap()->cellSize - dist;
+        float eval = 10 * agent->GetNodeMap()->m_cellSize - dist;
         if (eval < 0)
             eval = 0;
         return eval;

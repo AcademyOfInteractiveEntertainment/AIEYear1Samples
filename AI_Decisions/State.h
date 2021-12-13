@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-namespace pathfinding
+namespace AIForGames
 {
     // forward declarations - we only use pointers to these classes here, so we dont need full includes
     class Behaviour;

@@ -1,5 +1,5 @@
 #pragma once
-namespace pathfinding
+namespace AIForGames
 {
 	class Agent;
 

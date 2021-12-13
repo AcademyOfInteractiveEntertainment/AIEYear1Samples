@@ -2,7 +2,7 @@
 #include "Agent.h"
 #include "GotoPointBehaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     void GotoPointBehaviour::Update(Agent* agent, float deltaTime)
     {

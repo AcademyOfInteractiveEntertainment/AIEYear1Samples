@@ -3,11 +3,11 @@
 #include "raylib.h"
 #include <raymath.h>
 
-namespace pathfinding
+namespace AIForGames
 {
     NodeMap::~NodeMap()
     {
-        delete[] nodes;
+        delete[] m_nodes;
     }
 
     void NodeMap::Initialise(std::vector<std::string> asciiMap)
@@ -15,35 +15,35 @@ namespace pathfinding
         const char emptySquare = '0';
 
         // assume all strings are the same length, so we'll size the map according to the number of strings and the length of the first one
-        height = asciiMap.size();
-        width = asciiMap[0].size();
+        m_height = asciiMap.size();
+        m_width = asciiMap[0].size();
 
-        nodes = new Node * [width * height];
+        m_nodes = new Node * [m_width * m_height];
 
         // loop over the strings, creating Node entries as we go
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < m_height; y++)
         {
             std::string& line = asciiMap[y];
             // report to the use that you have a mis-matched string length
-            if (line.size() != width)
-                std::cout << "Mismatched line #" << y << " in ASCII map (" << line.size() << " instead of " << width << ")" << std::endl;
+            if (line.size() != m_width)
+                std::cout << "Mismatched line #" << y << " in ASCII map (" << line.size() << " instead of " << m_width << ")" << std::endl;
 
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < m_width; x++)
             {
                 // get the x-th character, or return an empty node if the string isn't long enough 
                 char tile = x < line.size() ? line[x] : emptySquare;
 
                 // create a node for anything but a '.' character
                 // position it in the middle of the cell, hence the +0.5f's
-                nodes[x + width * y] = tile == emptySquare ? nullptr : new Node((x+0.5f) * cellSize, (y+0.5f) * cellSize);
+                m_nodes[x + m_width * y] = tile == emptySquare ? nullptr : new Node((x+0.5f) * m_cellSize, (y+0.5f) * m_cellSize);
             }
         }
 
         // now loop over the nodes, creating connections between each node and its neighbour to the West and South on the grid
         // this will link up all nodes 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < m_height; y++)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < m_width; x++)
             {
                 Node* node = GetNode(x, y);
                 if (node)
@@ -73,7 +73,7 @@ namespace pathfinding
                     }
 
                     // and (+1, -1)
-                    Node* nodeSouthEast = (x == width-1 || y == 0) ? nullptr : GetNode(x+1, y - 1);
+                    Node* nodeSouthEast = (x == m_width-1 || y == 0) ? nullptr : GetNode(x+1, y - 1);
                     if (nodeSouthEast)
                     {
                         node->ConnectTo(nodeSouthEast, 1.414f);
@@ -100,15 +100,15 @@ namespace pathfinding
         lineColor.g = 128;
         lineColor.b = 128;
 
-        for (int y = 0; y < height; y++)
+        for (int y = 0; y < m_height; y++)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < m_width; x++)
             {
                 Node* node = GetNode(x, y);
                 if (node == nullptr)
                 {
                     // draw a solid block in empty squares without a navigation node
-                    DrawRectangle(x * cellSize, y * cellSize, cellSize - 1, cellSize - 1, cellColor);
+                    DrawRectangle(x * m_cellSize, y * m_cellSize, m_cellSize - 1, m_cellSize - 1, cellColor);
                 }
                 else
                 {
@@ -125,11 +125,11 @@ namespace pathfinding
 
     Node* NodeMap::GetClosestNode(Vector2 worldPos)
     {
-        int i = worldPos.x / cellSize;
-        if (i < 0 || i >= width) return nullptr;
+        int i = worldPos.x / m_cellSize;
+        if (i < 0 || i >= m_width) return nullptr;
 
-        int j = worldPos.y / cellSize;
-        if (j < 0 || j >= height) return nullptr;
+        int j = worldPos.y / m_cellSize;
+        if (j < 0 || j >= m_height) return nullptr;
 
         return GetNode(i, j);
     }
@@ -139,8 +139,8 @@ namespace pathfinding
         Node* node = nullptr;
         while (node == nullptr)
         {
-            int x = rand() % width;
-            int y = rand() % height;
+            int x = rand() % m_width;
+            int y = rand() % m_height;
             node = GetNode(x, y);
         }
         return node;
@@ -151,10 +151,10 @@ namespace pathfinding
         // calculate a vector from start to end that is one cellsize in length
         Vector2 delta = Vector2Subtract(end->position, start->position);
         float distance =Vector2Distance(end->position, start->position);
-        delta = Vector2Scale(delta, cellSize/distance);
+        delta = Vector2Scale(delta, m_cellSize/distance);
 
         // step forward in that direction one cell at a time from start towards end
-        for (float cells = 1.0f; cells < distance/cellSize; cells += 1.0f)
+        for (float cells = 1.0f; cells < distance/ m_cellSize; cells += 1.0f)
         {
             Vector2 testPosition = Vector2Add(start->position, Vector2Scale(delta, cells));
             // if the square below in unpassable, then we don;t have line of sight from start to end

@@ -2,7 +2,7 @@
 #include "Behaviour.h"
 #include "Condition.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     State::~State()
     {

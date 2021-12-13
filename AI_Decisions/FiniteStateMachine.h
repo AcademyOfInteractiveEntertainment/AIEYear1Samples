@@ -2,7 +2,7 @@
 #include <vector>
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
     class State;
     class Agent;

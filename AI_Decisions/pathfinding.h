@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace pathfinding {
+namespace AIForGames {
 	struct Node;
 
 	struct Edge {

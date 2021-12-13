@@ -1,16 +1,16 @@
 #pragma once
 #include "Condition.h"
 
-namespace pathfinding
+namespace AIForGames
 {
 	class DistanceCondition : public Condition
 	{
 	private:
-		float distance;
-		bool lessThan;
+		float m_distance;
+		bool m_lessThan;
 
 	public:
-		DistanceCondition(float d, bool lt) : distance(d), lessThan(lt) {}
+		DistanceCondition(float d, bool lt) : m_distance(d), m_lessThan(lt) {}
 		virtual bool IsTrue(Agent* agent);
 	};
 }

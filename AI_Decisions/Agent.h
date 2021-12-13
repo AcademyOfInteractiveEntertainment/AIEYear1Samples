@@ -2,7 +2,7 @@
 #include "PathAgent.h"
 #include "Behaviour.h"
 
-namespace pathfinding
+namespace AIForGames
 {
 	class NodeMap;
 
@@ -19,30 +19,30 @@ namespace pathfinding
 		void GoTo(Vector2 point);
 		void GoTo(Node* node);
 
-		std::vector<Node*>& GetPath() { return pathAgent.path; }
+		std::vector<Node*>& GetPath() { return m_pathAgent.m_path; }
 
 		void SetNode(Node* node);
 
 		bool PathComplete();
 
-		NodeMap* GetNodeMap() { return nodeMap; }
-		Vector2 GetPosition() { return pathAgent.position; }
+		NodeMap* GetNodeMap() { return m_nodeMap; }
+		Vector2 GetPosition() { return m_pathAgent.m_position; }
 
-		void SetSpeed(float speed) { pathAgent.speed = speed; }
+		void SetSpeed(float speed) { m_pathAgent.m_speed = speed; }
 
-		void SetTarget(Agent* _target) { target = _target; }
-		Agent* GetTarget() { return target; }
-		void SetColor(Color col) { color = col; }
+		void SetTarget(Agent* target) { m_target = target; }
+		Agent* GetTarget() { return m_target; }
+		void SetColor(Color col) { m_color = col; }
 
-		void Reset() { pathAgent.path.clear(); }
+		void Reset() { m_pathAgent.m_path.clear(); }
 
 	private:
-		PathAgent pathAgent;
-		Behaviour* current;
-		NodeMap* nodeMap;
+		PathAgent m_pathAgent;
+		Behaviour* m_current;
+		NodeMap* m_nodeMap;
 
-		Agent* target;
+		Agent* m_target;
 
-		Color color;
+		Color m_color;
 	};
 }

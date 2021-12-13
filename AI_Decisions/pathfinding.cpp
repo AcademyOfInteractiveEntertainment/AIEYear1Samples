@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector> 
 
-namespace pathfinding
+namespace AIForGames
 {
 	//Use this function to sort nodes using their gScore value
 	bool NodeSort(Node* i, Node* j) 

@@ -3,7 +3,7 @@
 #include <vector>
 #include "pathfinding.h"
 
-namespace pathfinding
+namespace AIForGames
 {
 	// class that represents the nodes on a map, shared between all Pathfind objects
 	// this data is initialised and startup and doesn't change at runtime
@@ -12,16 +12,16 @@ namespace pathfinding
 	public:
 		~NodeMap();
 
-		int width, height;
-		float cellSize;
+		int m_width, m_height;
+		float m_cellSize;
 
-		Node** nodes;
+		Node** m_nodes;
 
 		void Initialise(std::vector<std::string> asciiMap);
 		void Draw(bool drawConnections);
 
 		// utility functions 
-		Node* GetNode(int x, int y) { return nodes[x + width * y]; }
+		Node* GetNode(int x, int y) { return m_nodes[x + m_width * y]; }
 		Node* GetClosestNode(Vector2 worldPos);
 
 		Node* GetRandomNode();
