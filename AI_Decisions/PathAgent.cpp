@@ -45,7 +45,7 @@ namespace AIForGames
         else
         {
             m_currentIndex++;
-            if (m_currentIndex >= m_path.size())
+            if (m_currentIndex >= (int)m_path.size())
             {
                 // we've reached the end, so stop on the node and clear our path
                 m_position.x = m_currentNode->position.x;
@@ -96,7 +96,7 @@ namespace AIForGames
             //if (distanceToNext < 16.0f)
         {
             m_currentIndex++;
-            if (m_currentIndex >= m_path.size())
+            if (m_currentIndex >= (int)m_path.size())
                 m_path.clear();
             else
                 m_currentNode = m_path[m_currentIndex];

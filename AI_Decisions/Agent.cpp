@@ -24,7 +24,7 @@ namespace AIForGames
 
     void Agent::Draw()
     {
-        DrawCircle(m_pathAgent.m_position.x, m_pathAgent.m_position.y, 8, m_color);
+        DrawCircle((int)m_pathAgent.m_position.x, (int)m_pathAgent.m_position.y, 8, m_color);
     }
 
     void Agent::GoTo(Vector2 point)

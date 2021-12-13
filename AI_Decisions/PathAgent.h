@@ -10,7 +10,7 @@ namespace AIForGames
 	class PathAgent
 	{
 	public:
-		PathAgent() : m_currentIndex(-1), m_currentNode(nullptr), m_speed(100.0f), m_acceleration(500.0f) { m_velocity.x = 0; m_velocity.y = 0; }
+		PathAgent() : m_currentIndex(-1), m_currentNode(nullptr), m_speed(100.0f), m_acceleration(500.0f), m_nodeMap(nullptr) { m_position.x = 0; m_position.y = 0; m_velocity.x = 0; m_velocity.y = 0; }
 
 		Vector2 m_position;
 		Vector2 m_velocity;

@@ -31,7 +31,7 @@ namespace AIForGames
             for (int x = 0; x < m_width; x++)
             {
                 // get the x-th character, or return an empty node if the string isn't long enough 
-                char tile = x < line.size() ? line[x] : emptySquare;
+                char tile = x < (int)line.size() ? line[x] : emptySquare;
 
                 // create a node for anything but a '.' character
                 // position it in the middle of the cell, hence the +0.5f's
@@ -108,12 +108,12 @@ namespace AIForGames
                 if (node == nullptr)
                 {
                     // draw a solid block in empty squares without a navigation node
-                    DrawRectangle(x * m_cellSize, y * m_cellSize, m_cellSize - 1, m_cellSize - 1, cellColor);
+                    DrawRectangle((int)(x * m_cellSize), (int)(y * m_cellSize), (int)(m_cellSize - 1), (int)(m_cellSize - 1), cellColor);
                 }
                 else
                 {
                     // draw the connections between the node and its neighbours
-                    for (int i = 0; i < node->connections.size(); i++)
+                    for (int i = 0; i < (int)node->connections.size(); i++)
                     {
                         Node* other = node->connections[i].target;
                         DrawLine(node->position.x, node->position.y, other->position.x, other->position.y, lineColor);

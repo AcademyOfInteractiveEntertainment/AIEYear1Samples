@@ -16,7 +16,7 @@ namespace AIForGames {
 
 	struct Node {
 
-		Node() {}
+		Node() { position.x = 0; position.y = 0; gScore = 0; previous = nullptr; }
 		Node(float x, float y) { position.x = x; position.y = y; gScore = 0; previous = nullptr; }
 
 		Vector2 position;
@@ -31,6 +31,4 @@ namespace AIForGames {
 
 	std::vector<Node*> DijkstrasSearch(Node* startNode, Node* endNode);
 	void DrawPath(std::vector<Node*>& path, Color lineColor);
-	void DrawNode(Node* node, bool selected = false);
-	void DrawGraph(Node* node, std::vector<Node*>* drawnList);
 }

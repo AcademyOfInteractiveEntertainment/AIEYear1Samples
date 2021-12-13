@@ -119,47 +119,4 @@ namespace AIForGames
 		for (int i = 1; i < path.size(); i++)
 			DrawLine(path[i - 1]->position.x, path[i - 1]->position.y, path[i]->position.x, path[i]->position.y, lineColor);
 	}
-
-	void DrawNode(Node* node, bool selected)
-	{
-		static char buffer[10];
-		sprintf_s(buffer, "%.0f", node->gScore);
-
-		//Draw the circle for the outline
-		DrawCircle(node->position.x, node->position.y, 25, YELLOW);
-		//Draw the inner circle
-		if (selected)
-		{
-			DrawCircle(node->position.x, node->position.y, 22, BROWN);
-		}
-		else
-		{
-			DrawCircle(node->position.x, node->position.y, 22, BLACK);
-		}
-		//Draw the text
-		DrawText(buffer, node->position.x - 10, node->position.y - 10, 15, WHITE);
-	}
-
-	void DrawGraph(Node* node, std::vector<Node*>* drawnList)
-	{
-		DrawNode(node);
-		drawnList->push_back(node);
-
-		//For each Edge in this node's connections
-		for (Edge e : node->connections)
-		{
-			//Draw the Edge
-			DrawLine(node->position.x, node->position.y, e.target->position.x, e.target->position.y, WHITE);
-			//Draw the cost
-			Vector2 costPos = { (node->position.x + e.target->position.x) / 2, (node->position.y + e.target->position.y) / 2 };
-			static char buffer[10];
-			sprintf_s(buffer, "%.0f", e.cost);
-			DrawText(buffer, costPos.x, costPos.y, 15, WHITE);
-			//Draw the target node
-			if (std::find(drawnList->begin(), drawnList->end(), e.target) == drawnList->end())
-			{
-				DrawGraph(e.target, drawnList);
-			}
-		}
-	}
 }
