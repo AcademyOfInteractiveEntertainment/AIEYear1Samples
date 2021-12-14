@@ -5,6 +5,73 @@
 
 namespace AIForGames
 {
+    // for each segment on the path, find the closest point to the player
+    // returns the closest point, and the segment index such that point lies between points [segment] and [segment + 1]
+    Vector2 PathAgent::GetClosestPointOnPath(int& segment)
+    {
+        float closestDistance = FLT_MAX;
+        Vector2 closestPoint;
+        segment = -1;
+
+        // loop over each segment
+        for (int i = 1; i < (int)m_path.size(); i++)
+        {
+            Vector2 segmentStart = m_path[i - 1]->position;
+            Vector2 segmentEnd = m_path[i]->position;
+
+            Vector2 toPosition = Vector2Subtract(m_position, segmentStart);
+            Vector2 toEnd = Vector2Subtract(segmentEnd, segmentStart);
+
+            // project along the segment to get a value where 0 = level with start and 1 = level with end.
+            float alpha = Vector2DotProduct(toPosition, toEnd) / Vector2DotProduct(toEnd, toEnd);
+
+            // clamp that value
+            if (alpha < 0) alpha = 0;
+            if (alpha > 1) alpha = 1;
+
+            // closest point on the line segment comes from lerping from start to end with our clamped alpha value
+            Vector2 point = Vector2Lerp(segmentStart, segmentEnd, alpha);
+            float distance = Vector2Distance(point, m_position);
+
+            if (closestDistance > distance)
+            {
+                closestDistance = distance;
+                closestPoint = point;
+                segment = i-1;
+            }
+        }
+
+        return closestPoint;
+    }
+
+    // pos is a position on the path, preferably calculated using GetClosestPoint()
+    // we step along the path segment by segment until we've reached the end or travelled (distanceAhead) metres
+    Vector2 PathAgent::GetPointAlongPath(Vector2 pos, int segment, float distanceAhead)
+    {
+        Vector2 start = pos;
+        Vector2 end = m_path[segment + 1]->position;
+        while (distanceAhead > 0)
+        {
+            float remainingDistance = Vector2Distance(start, end);
+            if (distanceAhead <= remainingDistance)
+            {
+                // we won't reach the end node of this segment with our remaining distance, so lerp towards the end
+                return Vector2Lerp(start, end, distanceAhead / remainingDistance);
+            }
+            else
+            {
+                distanceAhead -= remainingDistance;
+                segment++;
+                start = end;
+                if (segment + 1 < (int)m_path.size())
+                    end = m_path[segment + 1]->position; // move on to the next segment and try again
+                else
+                    return end; // we've reach the end of the path
+            }
+        }
+        return end;
+    }
+
     void PathAgent::SetNode(Node* node)
     {
         m_currentNode = node;
@@ -14,6 +81,10 @@ namespace AIForGames
     void PathAgent::Update(float deltaTime)
     {
         if (m_path.empty()) return;
+
+        Node* node = m_nodeMap->GetClosestNode(GetPosition());
+        if (node)
+            m_currentNode = node;
 
         if (m_acceleration == 0)
             UpdateLinear(deltaTime);
@@ -75,31 +146,24 @@ namespace AIForGames
 
     void PathAgent::UpdatePhysics(float deltaTime)
     {
-        // find out how far we have to go to the next node
-        float dx = m_currentNode->position.x - m_position.x;
-        float dy = m_currentNode->position.y - m_position.y;
+        int segment;
+        Vector2 closestPoint = GetClosestPointOnPath(segment);
+        float distAhead = Vector2Length(m_velocity) * m_lookAhead;
+        Vector2 target = GetPointAlongPath(closestPoint, segment, distAhead);
+
+        // find out how far we have to go to the target point
+        float dx = target.x - m_position.x;
+        float dy = target.y - m_position.y;
         float distanceToNext = sqrtf(dx * dx + dy * dy);
 
-        // normalize the vector to the next node
+        m_debugPoint1 = closestPoint;
+        m_debugPoint2 = target;
+
+        // normalize the vector to the target point
         if (distanceToNext > 0)
         {
             dx /= distanceToNext;
             dy /= distanceToNext;
-        }
-
-        // if we get close enough to the next node, move on
-        Vector2 forwards = { 0,0 };
-        if (m_currentIndex > 0)
-            forwards = Vector2Normalize(Vector2Subtract(m_currentNode->position, m_path[m_currentIndex - 1]->position));
-
-        if ((forwards.x * dx + forwards.y * dy) * distanceToNext < 1.0f)
-            //if (distanceToNext < 16.0f)
-        {
-            m_currentIndex++;
-            if (m_currentIndex >= (int)m_path.size())
-                m_path.clear();
-            else
-                m_currentNode = m_path[m_currentIndex];
         }
 
         // friction - we want this to balance out acceleration when we're moving at speed.
@@ -123,5 +187,11 @@ namespace AIForGames
         m_path = DijkstrasSearch(m_currentNode, node);
         m_path = m_nodeMap->SmoothPath(m_path);
         m_currentIndex = 0;
+    }
+
+    void PathAgent::DrawDebug()
+    {
+        DrawCircle((int)m_debugPoint1.x, (int)m_debugPoint1.y, 4, { 255,255,255,255 });
+        DrawCircle((int)m_debugPoint2.x, (int)m_debugPoint2.y, 6, { 255,255,255,255 });
     }
 }

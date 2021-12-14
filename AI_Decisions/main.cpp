@@ -149,11 +149,11 @@ int main(int argc, char* argv[])
         agent.Update(deltaTime);
         agent.Draw();
 
-        //agent2.Update(deltaTime);
-        //agent2.Draw();
+        agent2.Update(deltaTime);
+        agent2.Draw();
 
-        //agent3.Update(deltaTime);
-        //agent3.Draw();
+        agent3.Update(deltaTime);
+        agent3.Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

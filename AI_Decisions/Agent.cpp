@@ -25,6 +25,7 @@ namespace AIForGames
     void Agent::Draw()
     {
         DrawCircle((int)m_pathAgent.GetPosition().x, (int)m_pathAgent.GetPosition().y, 8, m_color);
+        m_pathAgent.DrawDebug();
     }
 
     void Agent::GoTo(Vector2 point)

@@ -22,8 +22,22 @@ namespace AIForGames
 		float m_speed;
 		NodeMap* m_nodeMap;
 
+		float m_lookAhead;
+
+		//private utility functions used to  travel along a path like a vehicle
+
+		// checks the closest point on each line segment in the path and returns the closest point
+		Vector2 GetClosestPointOnPath(int& segment);
+
+		// takes a position on the path and the segement index and looks forward bu <distanceAhead> metres
+		Vector2 GetPointAlongPath(Vector2 pos, int segment, float distanceAhead);
+
+
+		Vector2 m_debugPoint1;
+		Vector2 m_debugPoint2;
+
 	public:
-		PathAgent() : m_currentIndex(-1), m_currentNode(nullptr), m_speed(100.0f), m_acceleration(500.0f), m_nodeMap(nullptr) { m_position.x = 0; m_position.y = 0; m_velocity.x = 0; m_velocity.y = 0; }
+		PathAgent() : m_currentIndex(-1), m_currentNode(nullptr), m_speed(100.0f), m_acceleration(500.0f), m_nodeMap(nullptr), m_lookAhead(1) { m_position.x = 0; m_position.y = 0; m_velocity.x = 0; m_velocity.y = 0; }
 
 		void SetNode(Node* node);
 		void Update(float deltaTime);
@@ -41,5 +55,7 @@ namespace AIForGames
 		void SetSpeed(float speed) { m_speed = speed; }
 		NodeMap* GetNodeMap() { return m_nodeMap; }
 		void SetNodeMap(NodeMap* nodeMap) { m_nodeMap = nodeMap; }
+
+		void DrawDebug();
 	};
 }
