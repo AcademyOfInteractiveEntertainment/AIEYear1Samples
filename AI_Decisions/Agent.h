@@ -19,22 +19,22 @@ namespace AIForGames
 		void GoTo(Vector2 point);
 		void GoTo(Node* node);
 
-		std::vector<Node*>& GetPath() { return m_pathAgent.m_path; }
+		std::vector<Node*>& GetPath() { return m_pathAgent.GetPath(); }
 
 		void SetNode(Node* node);
 
 		bool PathComplete();
 
 		NodeMap* GetNodeMap() { return m_nodeMap; }
-		Vector2 GetPosition() { return m_pathAgent.m_position; }
+		Vector2 GetPosition() { return m_pathAgent.GetPosition(); }
 
-		void SetSpeed(float speed) { m_pathAgent.m_speed = speed; }
+		void SetSpeed(float speed) { m_pathAgent.SetSpeed(speed); }
 
 		void SetTarget(Agent* target) { m_target = target; }
 		Agent* GetTarget() { return m_target; }
 		void SetColor(Color col) { m_color = col; }
 
-		void Reset() { m_pathAgent.m_path.clear(); }
+		void Reset() { m_pathAgent.GetPath().clear(); }
 
 	private:
 		PathAgent m_pathAgent;

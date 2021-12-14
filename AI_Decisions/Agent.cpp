@@ -5,7 +5,7 @@ namespace AIForGames
 {
     Agent::Agent(NodeMap* nodeMap, Behaviour* behaviour) : m_current(behaviour), m_nodeMap(nodeMap), m_color({ 255, 255, 0, 255 })
     {
-        m_pathAgent.m_nodeMap = nodeMap;
+        m_pathAgent.SetNodeMap(nodeMap);
         m_current->Enter(this);
         m_target = nullptr;
     }
@@ -24,7 +24,7 @@ namespace AIForGames
 
     void Agent::Draw()
     {
-        DrawCircle((int)m_pathAgent.m_position.x, (int)m_pathAgent.m_position.y, 8, m_color);
+        DrawCircle((int)m_pathAgent.GetPosition().x, (int)m_pathAgent.GetPosition().y, 8, m_color);
     }
 
     void Agent::GoTo(Vector2 point)
@@ -45,6 +45,6 @@ namespace AIForGames
 
     bool Agent::PathComplete()
     {
-        return m_pathAgent.m_path.empty();
+        return m_pathAgent.GetPath().empty();
     }
 }
