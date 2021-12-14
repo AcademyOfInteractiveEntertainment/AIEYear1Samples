@@ -10,7 +10,7 @@ namespace AIForGames
     Vector2 PathAgent::GetClosestPointOnPath(int& segment)
     {
         float closestDistance = FLT_MAX;
-        Vector2 closestPoint;
+        Vector2 closestPoint = m_position;
         segment = -1;
 
         // loop over each segment
@@ -166,13 +166,27 @@ namespace AIForGames
             dy /= distanceToNext;
         }
 
+
+        // calculate our desired topspeed and reduce it if we're approaching a bend
+        float topSpeed = m_speed;
+
+        if (segment >= 0)
+        {
+            Vector2 localForwards = Vector2Normalize(Vector2Subtract(m_path[segment + 1]->position, m_path[segment]->position));
+            Vector2 toTarget = Vector2Normalize(Vector2Subtract(target, m_position));
+            float braking = Vector2DotProduct(localForwards, toTarget);
+            if (braking < 0.1f)
+                braking = 0.1f;
+            topSpeed *= braking;
+        }
+
         // friction - we want this to balance out acceleration when we're moving at speed.
         // so this should provide a force equal to -acceleration when moving at top speed.
         float damping = Vector2Length(m_velocity) / m_speed;
         std::cout << "Damping = " << damping  << ", Speed = " << Vector2Length(m_velocity) << std::endl;
         if (damping > 1.0f)
             damping = 1;
-        m_velocity = Vector2Add(m_velocity, Vector2Scale(m_velocity, -m_acceleration / m_speed * deltaTime));
+        m_velocity = Vector2Add(m_velocity, Vector2Scale(m_velocity, -m_acceleration / topSpeed * deltaTime));
 
         // accelerate towards target point
         m_velocity.x += m_acceleration * deltaTime * dx;
