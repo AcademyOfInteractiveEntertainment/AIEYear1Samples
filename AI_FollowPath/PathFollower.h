@@ -5,22 +5,25 @@
 class PathFollower
 {
 public:
-	PathFollower();
+    PathFollower();
+    void Update(float deltaTime);
+    void Draw();
 
-	// array of points describing a closed path
-	std::vector<Vector2> m_path;
-	Vector2 m_position;
-	Vector2 m_velocity;
-	float m_speed;
-	float m_acceleration;
+    void AddPoint(Vector2 point) { m_path.push_back(point); }
+    void SetPosition(float x, float y) { m_position.x = x; m_position.y = y; }
 
-	Vector2 m_debugPoint1;
-	Vector2 m_debugPoint2;
+private:
+    // array of points describing a closed path
+    std::vector<Vector2> m_path;
+    Vector2 m_position;
+    Vector2 m_velocity;
+    float m_speed;
+    float m_acceleration;
 
-	Vector2 GetClosestPointOnPath(int& segment);
-	Vector2 GetPointAlongPath(Vector2 pos, int segment, float distanceAhead);
+    Vector2 m_debugClosest;
+    Vector2 m_debugTarget;
 
-	void Update(float deltaTime);
-	void Draw();
+    Vector2 GetClosestPointOnPath(int& segment);
+    Vector2 GetPointAlongPath(Vector2 pos, int segment, float distanceAhead);
 };
 
