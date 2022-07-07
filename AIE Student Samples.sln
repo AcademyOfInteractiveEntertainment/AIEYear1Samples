@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29911.84
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaylibStarterCPP", "RaylibStarterCPP\RaylibStarterCPP.vcxproj", "{66F97E22-5E02-4257-B75C-DA71B7A17BFF}"
 EndProject
@@ -68,6 +68,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_Decisions", "AI_Decisions\AI_Decisions.vcxproj", "{43583AB5-CFA0-4034-BE2D-722F0DC8C9E0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_FollowPath", "AI_FollowPath\AI_FollowPath.vcxproj", "{7319E5F1-B423-4570-A8E7-5FD9489396FC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AI_BehaviourTrees", "AI_BehaviourTrees\AI_BehaviourTrees.vcxproj", "{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -432,6 +434,18 @@ Global
 		{7319E5F1-B423-4570-A8E7-5FD9489396FC}.Release|x64.Build.0 = Release|x64
 		{7319E5F1-B423-4570-A8E7-5FD9489396FC}.Release|x86.ActiveCfg = Release|Win32
 		{7319E5F1-B423-4570-A8E7-5FD9489396FC}.Release|x86.Build.0 = Release|Win32
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|Any CPU.Build.0 = Debug|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|x64.ActiveCfg = Debug|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|x64.Build.0 = Debug|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|x86.ActiveCfg = Debug|Win32
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Debug|x86.Build.0 = Debug|Win32
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|Any CPU.ActiveCfg = Release|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|Any CPU.Build.0 = Release|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|x64.ActiveCfg = Release|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|x64.Build.0 = Release|x64
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|x86.ActiveCfg = Release|Win32
+		{F0B69A39-CB41-4F1D-87FF-F56B8F70FA78}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

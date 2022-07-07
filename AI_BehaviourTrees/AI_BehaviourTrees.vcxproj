@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{94098af3-3b4f-4b21-911b-8b3d9bdd8358}</ProjectGuid>
+    <ProjectGuid>{f0b69a39-cb41-4f1d-87ff-f56b8f70fa78}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AI_Seek</RootNamespace>
+    <RootNamespace>AI_BehaviourTrees</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -169,15 +169,19 @@
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Behaviour.cpp" />
+    <ClCompile Include="Composite.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SeekBehaviour.cpp" />
+    <ClCompile Include="Selector.cpp" />
+    <ClCompile Include="Sequence.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behaviour.h" />
-    <ClInclude Include="SeekBehaviour.h" />
+    <ClInclude Include="Behaviours.h" />
+    <ClInclude Include="Composite.h" />
+    <ClInclude Include="Selector.h" />
+    <ClInclude Include="Sequence.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
