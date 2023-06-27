@@ -34,7 +34,7 @@ jobs:
         # Keep this updated with whatever the current IT supported version of VS is
 
       - name: Setup MSBuild and add to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v1.1.1
         id: setup_msbuild
         continue-on-error: true
         with:
